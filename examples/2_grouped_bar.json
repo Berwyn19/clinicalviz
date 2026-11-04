@@ -1,0 +1,701 @@
+{
+    "status": "ok",
+    "visualization": {
+        "type": "grouped_bar_chart",
+        "title": "Semaglutide vs Tirzepatide trials, by phase",
+        "encoding": {
+            "x": {
+                "field": "phase",
+                "type": "nominal",
+                "title": "Phase",
+                "sort": [
+                    "Early Phase 1",
+                    "Phase 1",
+                    "Phase 1/2",
+                    "Phase 2",
+                    "Phase 2/3",
+                    "Phase 3",
+                    "Phase 4",
+                    "N/A"
+                ]
+            },
+            "y": {
+                "field": "trial_count",
+                "type": "quantitative",
+                "title": "Trials"
+            },
+            "color": {
+                "field": "series",
+                "type": "nominal",
+                "title": "Group",
+                "domain": [
+                    "Semaglutide",
+                    "Tirzepatide"
+                ]
+            },
+            "citations": {
+                "field": "protocolSection.designModule.phases"
+            }
+        },
+        "data": [
+            {
+                "phase": "Early Phase 1",
+                "trial_count": 5,
+                "series": "Semaglutide",
+                "nct_ids": [
+                    "NCT07627191",
+                    "NCT07727473",
+                    "NCT07092605",
+                    "NCT06338553",
+                    "NCT05249881"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07627191",
+                        "excerpt": "EARLY_PHASE1"
+                    },
+                    {
+                        "nct_id": "NCT07727473",
+                        "excerpt": "EARLY_PHASE1"
+                    },
+                    {
+                        "nct_id": "NCT07092605",
+                        "excerpt": "EARLY_PHASE1"
+                    }
+                ]
+            },
+            {
+                "phase": "Early Phase 1",
+                "trial_count": 6,
+                "series": "Tirzepatide",
+                "nct_ids": [
+                    "NCT07812636",
+                    "NCT07065552",
+                    "NCT06759701",
+                    "NCT06934642",
+                    "NCT06734273",
+                    "NCT06751589"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07812636",
+                        "excerpt": "EARLY_PHASE1"
+                    },
+                    {
+                        "nct_id": "NCT07065552",
+                        "excerpt": "EARLY_PHASE1"
+                    },
+                    {
+                        "nct_id": "NCT06759701",
+                        "excerpt": "EARLY_PHASE1"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 1",
+                "trial_count": 115,
+                "series": "Semaglutide",
+                "nct_ids": [
+                    "NCT07840729",
+                    "NCT07855133",
+                    "NCT07772960",
+                    "NCT07845578",
+                    "NCT07767175",
+                    "NCT07430059",
+                    "NCT07673900",
+                    "NCT07597018",
+                    "NCT07527195",
+                    "NCT07223983",
+                    "NCT07465965",
+                    "NCT06222437",
+                    "NCT07225816",
+                    "NCT07184086",
+                    "NCT07087795",
+                    "NCT07010432",
+                    "NCT06982859",
+                    "NCT06972992",
+                    "NCT06745284",
+                    "NCT06830343"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07840729",
+                        "excerpt": "PHASE1"
+                    },
+                    {
+                        "nct_id": "NCT07855133",
+                        "excerpt": "PHASE1"
+                    },
+                    {
+                        "nct_id": "NCT07772960",
+                        "excerpt": "PHASE1"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 1",
+                "trial_count": 33,
+                "series": "Tirzepatide",
+                "nct_ids": [
+                    "NCT07782359",
+                    "NCT07868354",
+                    "NCT07803744",
+                    "NCT07842640",
+                    "NCT07559500",
+                    "NCT07095517",
+                    "NCT07299084",
+                    "NCT06916065",
+                    "NCT06890611",
+                    "NCT06648031",
+                    "NCT06575738",
+                    "NCT06297616",
+                    "NCT06345066",
+                    "NCT05978713",
+                    "NCT05822544",
+                    "NCT05810597",
+                    "NCT05696847",
+                    "NCT05582096",
+                    "NCT04235959",
+                    "NCT04407234"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07782359",
+                        "excerpt": "PHASE1"
+                    },
+                    {
+                        "nct_id": "NCT07868354",
+                        "excerpt": "PHASE1"
+                    },
+                    {
+                        "nct_id": "NCT07803744",
+                        "excerpt": "PHASE1"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 1/2",
+                "trial_count": 8,
+                "series": "Semaglutide",
+                "nct_ids": [
+                    "NCT07651319",
+                    "NCT07642635",
+                    "NCT07374328",
+                    "NCT06541509",
+                    "NCT05746039",
+                    "NCT06057077",
+                    "NCT06827002",
+                    "NCT04702516"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07651319",
+                        "excerpt": "PHASE1, PHASE2"
+                    },
+                    {
+                        "nct_id": "NCT07642635",
+                        "excerpt": "PHASE1, PHASE2"
+                    },
+                    {
+                        "nct_id": "NCT07374328",
+                        "excerpt": "PHASE1, PHASE2"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 1/2",
+                "trial_count": 4,
+                "series": "Tirzepatide",
+                "nct_ids": [
+                    "NCT07463846",
+                    "NCT07245771",
+                    "NCT07000955",
+                    "NCT06700538"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07463846",
+                        "excerpt": "PHASE1, PHASE2"
+                    },
+                    {
+                        "nct_id": "NCT07245771",
+                        "excerpt": "PHASE1, PHASE2"
+                    },
+                    {
+                        "nct_id": "NCT07000955",
+                        "excerpt": "PHASE1, PHASE2"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 2",
+                "trial_count": 111,
+                "series": "Semaglutide",
+                "nct_ids": [
+                    "NCT07430332",
+                    "NCT07909889",
+                    "NCT07731256",
+                    "NCT07879612",
+                    "NCT07614412",
+                    "NCT07820358",
+                    "NCT07511543",
+                    "NCT07812597",
+                    "NCT06073184",
+                    "NCT07509112",
+                    "NCT07411378",
+                    "NCT07801820",
+                    "NCT07668388",
+                    "NCT07613437",
+                    "NCT07639021",
+                    "NCT07282769",
+                    "NCT07179120",
+                    "NCT07523633",
+                    "NCT07415954",
+                    "NCT07221214"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07430332",
+                        "excerpt": "PHASE2"
+                    },
+                    {
+                        "nct_id": "NCT07909889",
+                        "excerpt": "PHASE2"
+                    },
+                    {
+                        "nct_id": "NCT07731256",
+                        "excerpt": "PHASE2"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 2",
+                "trial_count": 63,
+                "series": "Tirzepatide",
+                "nct_ids": [
+                    "NCT07265752",
+                    "NCT07078838",
+                    "NCT06180616",
+                    "NCT07468552",
+                    "NCT07796477",
+                    "NCT07349641",
+                    "NCT07825857",
+                    "NCT07874828",
+                    "NCT07906041",
+                    "NCT07734870",
+                    "NCT07747805",
+                    "NCT07693608",
+                    "NCT06732245",
+                    "NCT07671391",
+                    "NCT07676331",
+                    "NCT07573163",
+                    "NCT06820281",
+                    "NCT07046819",
+                    "NCT07602699",
+                    "NCT07605247"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07265752",
+                        "excerpt": "PHASE2"
+                    },
+                    {
+                        "nct_id": "NCT07078838",
+                        "excerpt": "PHASE2"
+                    },
+                    {
+                        "nct_id": "NCT06180616",
+                        "excerpt": "PHASE2"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 2/3",
+                "trial_count": 12,
+                "series": "Semaglutide",
+                "nct_ids": [
+                    "NCT07797036",
+                    "NCT07891156",
+                    "NCT06913023",
+                    "NCT06975111",
+                    "NCT06619015",
+                    "NCT05646199",
+                    "NCT06896981",
+                    "NCT06387199",
+                    "NCT06423599",
+                    "NCT05788965",
+                    "NCT03919929",
+                    "NCT03899402"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07797036",
+                        "excerpt": "PHASE2, PHASE3"
+                    },
+                    {
+                        "nct_id": "NCT07891156",
+                        "excerpt": "PHASE2, PHASE3"
+                    },
+                    {
+                        "nct_id": "NCT06913023",
+                        "excerpt": "PHASE2, PHASE3"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 2/3",
+                "trial_count": 4,
+                "series": "Tirzepatide",
+                "nct_ids": [
+                    "NCT07846865",
+                    "NCT07734792",
+                    "NCT07284511",
+                    "NCT06162715"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07846865",
+                        "excerpt": "PHASE2, PHASE3"
+                    },
+                    {
+                        "nct_id": "NCT07734792",
+                        "excerpt": "PHASE2, PHASE3"
+                    },
+                    {
+                        "nct_id": "NCT07284511",
+                        "excerpt": "PHASE2, PHASE3"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 3",
+                "trial_count": 158,
+                "series": "Semaglutide",
+                "nct_ids": [
+                    "NCT07770282",
+                    "NCT07866066",
+                    "NCT07845994",
+                    "NCT07845500",
+                    "NCT07668414",
+                    "NCT07743983",
+                    "NCT07653477",
+                    "NCT07628985",
+                    "NCT07622810",
+                    "NCT06934655",
+                    "NCT07770841",
+                    "NCT07282613",
+                    "NCT07745504",
+                    "NCT07218354",
+                    "NCT07662213",
+                    "NCT07021937",
+                    "NCT07564414",
+                    "NCT07400107",
+                    "NCT07428746",
+                    "NCT07487103"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07770282",
+                        "excerpt": "PHASE3"
+                    },
+                    {
+                        "nct_id": "NCT07866066",
+                        "excerpt": "PHASE3"
+                    },
+                    {
+                        "nct_id": "NCT07845994",
+                        "excerpt": "PHASE3"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 3",
+                "trial_count": 52,
+                "series": "Tirzepatide",
+                "nct_ids": [
+                    "NCT07829198",
+                    "NCT07889648",
+                    "NCT07881432",
+                    "NCT07881458",
+                    "NCT07845500",
+                    "NCT07817875",
+                    "NCT07671248",
+                    "NCT07298915",
+                    "NCT07738276",
+                    "NCT07481747",
+                    "NCT07834398",
+                    "NCT07820111",
+                    "NCT07165028",
+                    "NCT06937086",
+                    "NCT06937099",
+                    "NCT06962280",
+                    "NCT06914895",
+                    "NCT06630585",
+                    "NCT06918405",
+                    "NCT06246799"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07829198",
+                        "excerpt": "PHASE3"
+                    },
+                    {
+                        "nct_id": "NCT07889648",
+                        "excerpt": "PHASE3"
+                    },
+                    {
+                        "nct_id": "NCT07881432",
+                        "excerpt": "PHASE3"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 4",
+                "trial_count": 107,
+                "series": "Semaglutide",
+                "nct_ids": [
+                    "NCT07462663",
+                    "NCT07858331",
+                    "NCT06977438",
+                    "NCT07900074",
+                    "NCT07592546",
+                    "NCT07900438",
+                    "NCT07859176",
+                    "NCT07859137",
+                    "NCT07859189",
+                    "NCT07859163",
+                    "NCT07859150",
+                    "NCT07872904",
+                    "NCT07389941",
+                    "NCT07617155",
+                    "NCT07769047",
+                    "NCT07485062",
+                    "NCT07783854",
+                    "NCT07870538",
+                    "NCT07728383",
+                    "NCT07547878"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07462663",
+                        "excerpt": "PHASE4"
+                    },
+                    {
+                        "nct_id": "NCT07858331",
+                        "excerpt": "PHASE4"
+                    },
+                    {
+                        "nct_id": "NCT06977438",
+                        "excerpt": "PHASE4"
+                    }
+                ]
+            },
+            {
+                "phase": "Phase 4",
+                "trial_count": 43,
+                "series": "Tirzepatide",
+                "nct_ids": [
+                    "NCT07900074",
+                    "NCT07893457",
+                    "NCT07777575",
+                    "NCT07756359",
+                    "NCT07715929",
+                    "NCT07191873",
+                    "NCT07554638",
+                    "NCT07630454",
+                    "NCT07588438",
+                    "NCT07697391",
+                    "NCT07706088",
+                    "NCT07707778",
+                    "NCT07257484",
+                    "NCT07555730",
+                    "NCT07218445",
+                    "NCT07483801",
+                    "NCT07438444",
+                    "NCT07423247",
+                    "NCT07326111",
+                    "NCT07247084"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07900074",
+                        "excerpt": "PHASE4"
+                    },
+                    {
+                        "nct_id": "NCT07893457",
+                        "excerpt": "PHASE4"
+                    },
+                    {
+                        "nct_id": "NCT07777575",
+                        "excerpt": "PHASE4"
+                    }
+                ]
+            },
+            {
+                "phase": "N/A",
+                "trial_count": 134,
+                "series": "Semaglutide",
+                "nct_ids": [
+                    "NCT07586150",
+                    "NCT07911046",
+                    "NCT05714683",
+                    "NCT06546384",
+                    "NCT07874932",
+                    "NCT07874971",
+                    "NCT07881770",
+                    "NCT07713992",
+                    "NCT07849348",
+                    "NCT07677995",
+                    "NCT07850765",
+                    "NCT07760532",
+                    "NCT07732426",
+                    "NCT07621640",
+                    "NCT07570810",
+                    "NCT07858864",
+                    "NCT07627074",
+                    "NCT07633639",
+                    "NCT07599046",
+                    "NCT07588984"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07586150",
+                        "excerpt": "NA"
+                    },
+                    {
+                        "nct_id": "NCT07911046",
+                        "excerpt": "(no phase listed)"
+                    },
+                    {
+                        "nct_id": "NCT05714683",
+                        "excerpt": "(no phase listed)"
+                    }
+                ]
+            },
+            {
+                "phase": "N/A",
+                "trial_count": 47,
+                "series": "Tirzepatide",
+                "nct_ids": [
+                    "NCT07728318",
+                    "NCT07847515",
+                    "NCT07099742",
+                    "NCT07889453",
+                    "NCT07387796",
+                    "NCT07811895",
+                    "NCT07760532",
+                    "NCT07619989",
+                    "NCT07866183",
+                    "NCT07382024",
+                    "NCT07858864",
+                    "NCT07574723",
+                    "NCT07567378",
+                    "NCT07633639",
+                    "NCT07588984",
+                    "NCT07653412",
+                    "NCT07504172",
+                    "NCT07589322",
+                    "NCT07443956",
+                    "NCT07492563"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07728318",
+                        "excerpt": "NA"
+                    },
+                    {
+                        "nct_id": "NCT07847515",
+                        "excerpt": "(no phase listed)"
+                    },
+                    {
+                        "nct_id": "NCT07099742",
+                        "excerpt": "(no phase listed)"
+                    }
+                ]
+            }
+        ]
+    },
+    "meta": {
+        "source": "clinicaltrials.gov",
+        "query": "Compare the phases of semaglutide and tirzepatide trials",
+        "plan": {
+            "intent": "chart",
+            "chart": "grouped_bar_chart",
+            "filters": {},
+            "group_by": "phase",
+            "compare": [
+                {
+                    "label": "Semaglutide",
+                    "filters": {
+                        "drug": "semaglutide"
+                    }
+                },
+                {
+                    "label": "Tirzepatide",
+                    "filters": {
+                        "drug": "tirzepatide"
+                    }
+                }
+            ],
+            "assumptions": []
+        },
+        "filters": {},
+        "series_filters": {
+            "Semaglutide": {
+                "drug": "semaglutide"
+            },
+            "Tirzepatide": {
+                "drug": "tirzepatide"
+            }
+        },
+        "assumptions": [],
+        "notes": [
+            "40 trials belong to more than one compared group and are counted in each."
+        ],
+        "count_source": "downloaded",
+        "stats": {
+            "trials": 902,
+            "missing_value": 0,
+            "values_not_shown": 0,
+            "matched": 902,
+            "downloaded": 902,
+            "sampled": false
+        },
+        "sources": [
+            {
+                "label": "Semaglutide",
+                "request_url": "https://clinicaltrials.gov/api/v2/studies?filter.advanced=%28AREA%5BInterventionName%5D%28semaglutide%29+OR+AREA%5BInterventionOtherName%5D%28semaglutide%29+OR+AREA%5BInterventionMeshTerm%5D%28semaglutide%29%29&fields=NCTId%2CBriefTitle%2COverallStatus%2CStartDate%2CPhase%2CStudyType%2CInterventionName%2CInterventionOtherName%2CInterventionMeshTerm&sort=StartDate%3Adesc",
+                "matched": 650,
+                "downloaded": 650,
+                "broad_matched": 796
+            },
+            {
+                "label": "Tirzepatide",
+                "request_url": "https://clinicaltrials.gov/api/v2/studies?filter.advanced=%28AREA%5BInterventionName%5D%28tirzepatide%29+OR+AREA%5BInterventionOtherName%5D%28tirzepatide%29+OR+AREA%5BInterventionMeshTerm%5D%28tirzepatide%29%29&fields=NCTId%2CBriefTitle%2COverallStatus%2CStartDate%2CPhase%2CStudyType%2CInterventionName%2CInterventionOtherName%2CInterventionMeshTerm&sort=StartDate%3Adesc",
+                "matched": 252,
+                "downloaded": 252,
+                "broad_matched": 310
+            }
+        ],
+        "timings": {
+            "data_s": 0.0994127499870956,
+            "plan_s": 3.8885952078271657
+        }
+    }
+}

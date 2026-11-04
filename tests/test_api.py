@@ -56,15 +56,23 @@ def test_index_and_static_files_are_served():
 def test_query_returns_plan_chart_data_and_sources():
     tc = client(FakeLLM(PHASE_PLAN))
     body = tc.post("/api/query", json={"query": "pembrolizumab trials by phase"}).json()
-    assert body["status"] == "ok" and body["plan"]["chart"] == "bar_chart"
-    assert body["result"]["rows"][0]["x"] == "Phase 2" and body["result"]["rows"][0]["y"] == 2
-    assert body["sources"][0]["matched"] == 2 and body["sources"][0]["broad_matched"] == 5
+    assert body["status"] == "ok" and body["meta"]["plan"]["chart"] == "bar_chart"
+    viz = body["visualization"]
+    assert viz["type"] == "bar_chart" and viz["title"] == "Trials of pembrolizumab, by phase"
+    assert viz["encoding"]["x"]["field"] == "phase" and viz["encoding"]["y"]["field"] == "trial_count"
+    assert viz["data"][0]["phase"] == "Phase 2" and viz["data"][0]["trial_count"] == 2
+    assert viz["data"][0]["citations"][0] == {"nct_id": "NCT0", "excerpt": "PHASE2"}
+    assert "bin_start" not in viz["data"][0]          # nulls are dropped
+    meta = body["meta"]
+    assert meta["filters"] == {"drug": "pembrolizumab"} and meta["count_source"] == "downloaded"
+    assert meta["sources"][0]["matched"] == 2 and meta["sources"][0]["broad_matched"] == 5
 
 
 def test_off_topic_question_is_unsupported_not_an_error():
     tc = client(FakeLLM(PHASE_PLAN, relevant=False))
     body = tc.post("/api/query", json={"query": "best pizza in town?"}).json()
-    assert body["status"] == "unsupported" and body["plan"]["reason"] == "off topic"
+    assert body["status"] == "unsupported" and body["meta"]["reason"] == "off topic"
+    assert "visualization" not in body
 
 
 def test_edited_plan_is_validated():
@@ -73,4 +81,21 @@ def test_edited_plan_is_validated():
     resp = tc.post("/api/plan", json={"plan": bad})
     assert resp.status_code == 422 and "bar_chart needs group_by" in resp.json()["detail"]
     ok = tc.post("/api/plan", json={"plan": PHASE_PLAN.model_dump(mode="json")})
-    assert ok.status_code == 200 and ok.json()["result"]["kind"] == "rows"
+    assert ok.status_code == 200 and ok.json()["visualization"]["type"] == "bar_chart"
+
+
+def test_trial_ids_are_capped_but_count_stays_true():
+    from app.aggregation.models import AggregateResult, Datum
+    from app.visualization.spec import MAX_IDS_PER_DATUM, build_response
+    ids = [f"NCT{i:08d}" for i in range(50)]
+    r = AggregateResult(kind="rows", categories=["Phase 2"], stats={"matched": 50, "downloaded": 50},
+                        rows=[Datum(x="Phase 2", y=50, trial_count=50, nct_ids=ids, citations=[])])
+    datum = build_response(PHASE_PLAN, r).visualization.data[0]
+    assert datum["trial_count"] == 50 and len(datum["nct_ids"]) == MAX_IDS_PER_DATUM
+    assert datum["nct_ids_complete"] is False
+
+
+def test_shared_citation_field_is_stated_once():
+    viz = client(FakeLLM(PHASE_PLAN)).post("/api/query", json={"query": "pembrolizumab by phase"}).json()["visualization"]
+    assert viz["encoding"]["citations"]["field"] == "protocolSection.designModule.phases"
+    assert "field" not in viz["data"][0]["citations"][0]

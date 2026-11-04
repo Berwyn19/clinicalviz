@@ -1,0 +1,426 @@
+{
+    "status": "ok",
+    "visualization": {
+        "type": "bar_chart",
+        "title": "Recruiting psoriasis trials, top 10 by country",
+        "encoding": {
+            "x": {
+                "field": "country",
+                "type": "nominal",
+                "title": "Country",
+                "sort": [
+                    "United States",
+                    "China",
+                    "France",
+                    "Germany",
+                    "Canada",
+                    "Italy",
+                    "Egypt",
+                    "Spain",
+                    "Poland",
+                    "United Kingdom"
+                ]
+            },
+            "y": {
+                "field": "trial_count",
+                "type": "quantitative",
+                "title": "Trials"
+            },
+            "citations": {
+                "field": "protocolSection.contactsLocationsModule.locations[].country"
+            }
+        },
+        "data": [
+            {
+                "country": "United States",
+                "trial_count": 46,
+                "nct_ids": [
+                    "NCT07801495",
+                    "NCT07725822",
+                    "NCT07654751",
+                    "NCT07487831",
+                    "NCT07489885",
+                    "NCT07648602",
+                    "NCT07471048",
+                    "NCT07449702",
+                    "NCT07362017",
+                    "NCT07426120",
+                    "NCT07390487",
+                    "NCT07250802",
+                    "NCT06979453",
+                    "NCT07219420",
+                    "NCT06888193",
+                    "NCT07116967",
+                    "NCT07013201",
+                    "NCT06982352",
+                    "NCT07615712",
+                    "NCT07017699"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07801495",
+                        "excerpt": "United States"
+                    },
+                    {
+                        "nct_id": "NCT07725822",
+                        "excerpt": "United States"
+                    },
+                    {
+                        "nct_id": "NCT07654751",
+                        "excerpt": "United States"
+                    }
+                ]
+            },
+            {
+                "country": "China",
+                "trial_count": 30,
+                "nct_ids": [
+                    "NCT07802964",
+                    "NCT07724366",
+                    "NCT07719530",
+                    "NCT07552454",
+                    "NCT07672561",
+                    "NCT07503652",
+                    "NCT07326813",
+                    "NCT07251998",
+                    "NCT07194200",
+                    "NCT07250802",
+                    "NCT06979453",
+                    "NCT07265284",
+                    "NCT07780929",
+                    "NCT07219420",
+                    "NCT07234591",
+                    "NCT07270003",
+                    "NCT07116967",
+                    "NCT07130604",
+                    "NCT07129382",
+                    "NCT07879885"
+                ],
+                "nct_ids_complete": false,
+                "citations": [
+                    {
+                        "nct_id": "NCT07802964",
+                        "excerpt": "China"
+                    },
+                    {
+                        "nct_id": "NCT07724366",
+                        "excerpt": "China"
+                    },
+                    {
+                        "nct_id": "NCT07719530",
+                        "excerpt": "China"
+                    }
+                ]
+            },
+            {
+                "country": "France",
+                "trial_count": 16,
+                "nct_ids": [
+                    "NCT07219420",
+                    "NCT06599411",
+                    "NCT07430319",
+                    "NCT07116967",
+                    "NCT07039110",
+                    "NCT06742333",
+                    "NCT06735911",
+                    "NCT06997055",
+                    "NCT06701513",
+                    "NCT06387654",
+                    "NCT07086599",
+                    "NCT05307809",
+                    "NCT05399433",
+                    "NCT05111210",
+                    "NCT04772079",
+                    "NCT04191395"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07219420",
+                        "excerpt": "France"
+                    },
+                    {
+                        "nct_id": "NCT06599411",
+                        "excerpt": "France"
+                    },
+                    {
+                        "nct_id": "NCT07430319",
+                        "excerpt": "France"
+                    }
+                ]
+            },
+            {
+                "country": "Germany",
+                "trial_count": 14,
+                "nct_ids": [
+                    "NCT07250802",
+                    "NCT06979453",
+                    "NCT07219420",
+                    "NCT06888193",
+                    "NCT07116967",
+                    "NCT07013201",
+                    "NCT07039110",
+                    "NCT05928169",
+                    "NCT07132333",
+                    "NCT04359394",
+                    "NCT04772079",
+                    "NCT03358693",
+                    "NCT03361215",
+                    "NCT01848028"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07250802",
+                        "excerpt": "Germany"
+                    },
+                    {
+                        "nct_id": "NCT06979453",
+                        "excerpt": "Germany"
+                    },
+                    {
+                        "nct_id": "NCT07219420",
+                        "excerpt": "Germany"
+                    }
+                ]
+            },
+            {
+                "country": "Canada",
+                "trial_count": 13,
+                "nct_ids": [
+                    "NCT07449702",
+                    "NCT06979453",
+                    "NCT07370766",
+                    "NCT07219420",
+                    "NCT06888193",
+                    "NCT07298265",
+                    "NCT07116967",
+                    "NCT07013201",
+                    "NCT07039110",
+                    "NCT06382051",
+                    "NCT05994976",
+                    "NCT05004727",
+                    "NCT04772079"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07449702",
+                        "excerpt": "Canada"
+                    },
+                    {
+                        "nct_id": "NCT06979453",
+                        "excerpt": "Canada"
+                    },
+                    {
+                        "nct_id": "NCT07370766",
+                        "excerpt": "Canada"
+                    }
+                ]
+            },
+            {
+                "country": "Italy",
+                "trial_count": 13,
+                "nct_ids": [
+                    "NCT07546032",
+                    "NCT07545902",
+                    "NCT07029516",
+                    "NCT07250802",
+                    "NCT06979453",
+                    "NCT07219420",
+                    "NCT07116967",
+                    "NCT07039110",
+                    "NCT06801821",
+                    "NCT05644782",
+                    "NCT06792487",
+                    "NCT06974474",
+                    "NCT04359394"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07546032",
+                        "excerpt": "Italy"
+                    },
+                    {
+                        "nct_id": "NCT07545902",
+                        "excerpt": "Italy"
+                    },
+                    {
+                        "nct_id": "NCT07029516",
+                        "excerpt": "Italy"
+                    }
+                ]
+            },
+            {
+                "country": "Egypt",
+                "trial_count": 9,
+                "nct_ids": [
+                    "NCT07693595",
+                    "NCT07352306",
+                    "NCT07289399",
+                    "NCT07233291",
+                    "NCT07320872",
+                    "NCT07128472",
+                    "NCT07169019",
+                    "NCT07086924",
+                    "NCT06893913"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07693595",
+                        "excerpt": "Egypt"
+                    },
+                    {
+                        "nct_id": "NCT07352306",
+                        "excerpt": "Egypt"
+                    },
+                    {
+                        "nct_id": "NCT07289399",
+                        "excerpt": "Egypt"
+                    }
+                ]
+            },
+            {
+                "country": "Spain",
+                "trial_count": 8,
+                "nct_ids": [
+                    "NCT07683065",
+                    "NCT07250802",
+                    "NCT06979453",
+                    "NCT07219420",
+                    "NCT06888193",
+                    "NCT07116967",
+                    "NCT07039110",
+                    "NCT04772079"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07683065",
+                        "excerpt": "Spain"
+                    },
+                    {
+                        "nct_id": "NCT07250802",
+                        "excerpt": "Spain"
+                    },
+                    {
+                        "nct_id": "NCT06979453",
+                        "excerpt": "Spain"
+                    }
+                ]
+            },
+            {
+                "country": "Poland",
+                "trial_count": 7,
+                "nct_ids": [
+                    "NCT07250802",
+                    "NCT06979453",
+                    "NCT07258745",
+                    "NCT07219420",
+                    "NCT07116967",
+                    "NCT07013201",
+                    "NCT04772079"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07250802",
+                        "excerpt": "Poland"
+                    },
+                    {
+                        "nct_id": "NCT06979453",
+                        "excerpt": "Poland"
+                    },
+                    {
+                        "nct_id": "NCT07258745",
+                        "excerpt": "Poland"
+                    }
+                ]
+            },
+            {
+                "country": "United Kingdom",
+                "trial_count": 7,
+                "nct_ids": [
+                    "NCT07219420",
+                    "NCT07187817",
+                    "NCT07116967",
+                    "NCT07013201",
+                    "NCT06726213",
+                    "NCT05858528",
+                    "NCT04772079"
+                ],
+                "nct_ids_complete": true,
+                "citations": [
+                    {
+                        "nct_id": "NCT07219420",
+                        "excerpt": "United Kingdom"
+                    },
+                    {
+                        "nct_id": "NCT07187817",
+                        "excerpt": "United Kingdom"
+                    },
+                    {
+                        "nct_id": "NCT07116967",
+                        "excerpt": "United Kingdom"
+                    }
+                ]
+            }
+        ]
+    },
+    "meta": {
+        "source": "clinicaltrials.gov",
+        "query": "Which 10 countries have the most recruiting psoriasis trials?",
+        "plan": {
+            "intent": "chart",
+            "chart": "bar_chart",
+            "filters": {
+                "condition": "psoriasis",
+                "statuses": [
+                    "RECRUITING"
+                ]
+            },
+            "group_by": "country",
+            "sort": "value_desc",
+            "limit": 10,
+            "assumptions": []
+        },
+        "filters": {
+            "condition": "psoriasis",
+            "statuses": [
+                "RECRUITING"
+            ]
+        },
+        "assumptions": [],
+        "notes": [
+            "Showing the top 10 of 37 country values; 27 more not shown.",
+            "A trial can have several country values and is counted once for each, so bar totals can exceed the number of trials.",
+            "Countries are counted by site status: a trial counts for a country only if a site there matches the status filter."
+        ],
+        "count_source": "downloaded",
+        "sort": "value_desc",
+        "limit": 10,
+        "stats": {
+            "trials": 153,
+            "missing_value": 0,
+            "values_not_shown": 27,
+            "matched": 153,
+            "downloaded": 153,
+            "sampled": false
+        },
+        "sources": [
+            {
+                "request_url": "https://clinicaltrials.gov/api/v2/studies?filter.advanced=%28AREA%5BCondition%5D%28psoriasis%29+OR+AREA%5BConditionMeshTerm%5D%28psoriasis%29%29&filter.overallStatus=RECRUITING&fields=NCTId%2CBriefTitle%2COverallStatus%2CStartDate%2CPhase%2CStudyType%2CCondition%2CConditionMeshTerm%2CLocationCountry%2CLocationStatus&sort=StartDate%3Adesc",
+                "matched": 153,
+                "downloaded": 153,
+                "broad_matched": 212
+            }
+        ],
+        "timings": {
+            "data_s": 0.009149833116680384,
+            "plan_s": 2.150299791013822
+        }
+    }
+}

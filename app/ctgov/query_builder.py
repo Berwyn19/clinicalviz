@@ -82,8 +82,11 @@ def sanitize(value: str) -> str:
 
     Removes brackets, parentheses, quotes and other symbols, and lowercases
     everything so words like OR / AND / NOT can't act as operators.
+    Possessives are dropped ("Parkinson's" -> "Parkinson"): with the apostrophe the API
+    skips its synonym/MeSH expansion (1,703 vs 4,913 trials for Parkinson disease).
     """
-    cleaned = re.sub(r"[^\w\s\-.,']", " ", value)
+    value = re.sub(r"['’]s\b", "", value, flags=re.IGNORECASE)
+    cleaned = re.sub(r"[^\w\s\-.,]", " ", value)
     cleaned = " ".join(cleaned.split()).strip(" -.,'").lower()
     if not cleaned:
         raise ValueError(f"filter value {value!r} is empty after cleaning")

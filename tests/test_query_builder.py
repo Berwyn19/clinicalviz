@@ -47,6 +47,9 @@ def test_year_range_only_max():
     ('"MK-3475"', "mk-3475"),
     ("Merck Sharp & Dohme", "merck sharp dohme"),
     ("Korea, Republic of", "korea, republic of"),
+    ("Parkinson's disease", "parkinson disease"),      # possessive blocks the API's MeSH expansion
+    ("Crohn\u2019s Disease", "crohn disease"),
+    ("O'Brien", "o brien"),
 ])
 def test_sanitize(raw, expected):
     assert sanitize(raw) == expected

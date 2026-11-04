@@ -117,8 +117,9 @@ async function call(url, body, question) {
   try {
     const resp = await fetch(url, { method: "POST", headers: { "Content-Type": "application/json" },
                                     body: JSON.stringify(body) });
-    const data = await resp.json().catch(() => ({}));
-    if (!resp.ok) throw new Error(errorText(data, resp.status));
+    const payload = await resp.json().catch(() => ({}));
+    if (!resp.ok) throw new Error(errorText(payload, resp.status));
+    const data = fromSpec(payload);
     data.question = question;
     current = data;
     render(data);
@@ -132,6 +133,45 @@ async function call(url, body, question) {
     $("#go").disabled = $("#rerun").disabled = false;
     $("#output").classList.remove("loading");
   }
+}
+
+/**
+ * {status, visualization, meta} -> the shape the chart builders below use.
+ * Everything comes from the spec's encoding and records, so this is also a check
+ * that the spec alone is enough to render the chart.
+ */
+function fromSpec({ status, visualization: viz, meta }) {
+  const out = { status, plan: meta.plan, sources: meta.sources || [], timings: meta.timings || {} };
+  if (!viz) return out;
+  const enc = viz.encoding;
+  // A field shared by every citation is stated once in the encoding; put it back on each citation.
+  const fillField = (records, field) => field && records.forEach((r) =>
+    (r.citations || []).forEach((c) => { c.field ??= field; }));
+  if (viz.type === "network_graph") {
+    fillField(viz.data.nodes, enc.nodes.citations?.field);
+    fillField(viz.data.edges, enc.edges.citations?.field);
+  } else {
+    fillField(viz.data, enc.citations?.field);
+  }
+  const stats = { ...meta.stats, sampled: meta.count_source === "sample" };
+  const series = enc.color?.domain || [];
+  const common = { notes: meta.notes || [], stats, series, categories: enc.x?.sort || [] };
+  if (viz.type === "table") return { ...out, result: { ...common, kind: "table", table: viz.data } };
+  if (viz.type === "network_graph") {
+    return { ...out, result: { ...common, kind: "network", nodes: viz.data.nodes, edges: viz.data.edges } };
+  }
+  let rows;
+  if (viz.type === "scatter_plot") {
+    Object.assign(stats, { x_unit: enc.x.unit, y_unit: enc.y.unit, x_scale: enc.x.scale, y_scale: enc.y.scale });
+    rows = viz.data.map((d) => ({ x: d[enc.x.field], y: d[enc.y.field], series: d.series ?? null, trial_count: 1,
+                                  nct_ids: [d.nct_id], label: d.title, citations: d.citations }));
+  } else {
+    if (viz.type === "histogram") stats.unit = enc.x.unit;
+    rows = viz.data.map((d) => ({ ...d, x: d[enc.x.field], y: d[enc.y.field], series: d.series ?? null }));
+    const partial = viz.data.find((d) => d[enc.partial]);
+    if (partial) stats.partial_year = partial[enc.x.field];
+  }
+  return { ...out, result: { ...common, kind: "rows", rows } };
 }
 
 function errorText(data, status) {
@@ -438,8 +478,7 @@ function showEvidence(r, p) {
   }
   const count = item.trial_count ?? item.weight ?? item.nct_ids.length;
   const parts = [el("p", { class: "count" }, el("strong", { text: title })),
-                 el("p", { class: "count", text: `${fmt(count)} trial${count === 1 ? "" : "s"}` +
-                   (item.nct_ids_complete === false ? `. IDs below are the ${fmt(item.nct_ids.length)} downloaded ones.` : "") })];
+                 el("p", { class: "count", text: `${fmt(count)} trial${count === 1 ? "" : "s"}` })];
   if (item.citations?.length) {
     parts.push(el("h4", { text: "Where the value comes from" }));
     parts.push(el("ul", { class: "cites" }, ...item.citations.map((c) =>
@@ -447,11 +486,11 @@ function showEvidence(r, p) {
          el("q", { text: c.excerpt || "(empty)" })))));
   }
   if (item.nct_ids.length) {
-    const shown = item.nct_ids.slice(0, 200);
-    parts.push(el("h4", { text: `Trials (${fmt(item.nct_ids.length)})` }));
-    parts.push(el("div", { class: "ids" }, ...shown.map(trialLink)));
-    if (item.nct_ids.length > shown.length) {
-      parts.push(el("p", { class: "muted", text: `and ${fmt(item.nct_ids.length - shown.length)} more` }));
+    parts.push(el("h4", { text: item.nct_ids_complete === false
+      ? `Trials (first ${fmt(item.nct_ids.length)} of ${fmt(count)})` : `Trials (${fmt(item.nct_ids.length)})` }));
+    parts.push(el("div", { class: "ids" }, ...item.nct_ids.map(trialLink)));
+    if (item.nct_ids_complete === false) {
+      parts.push(el("p", { class: "muted", text: "The full list is in the ClinicalTrials.gov search under Sources." }));
     }
   }
   $("#evidence").replaceChildren(...parts);

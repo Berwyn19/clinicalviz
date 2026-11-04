@@ -1,0 +1,22 @@
+{
+    "status": "unsupported",
+    "meta": {
+        "source": "clinicaltrials.gov",
+        "query": "Is adalimumab better than etanercept for rheumatoid arthritis?",
+        "plan": {
+            "intent": "unsupported",
+            "reason": "The question asks for a comparison of treatment effectiveness, which requires clinical judgment and is not answerable using ClinicalTrials.gov registry data alone.",
+            "filters": {},
+            "assumptions": []
+        },
+        "filters": {},
+        "assumptions": [],
+        "notes": [],
+        "stats": {},
+        "sources": [],
+        "timings": {
+            "plan_s": 0.8974212089087814
+        },
+        "reason": "The question asks for a comparison of treatment effectiveness, which requires clinical judgment and is not answerable using ClinicalTrials.gov registry data alone."
+    }
+}

@@ -114,7 +114,7 @@ Weakest terms:
 
 | Filter | Recall | Cause |
 |---|---|---|
-| condition: parkinson's disease | 43% | **Bug.** The apostrophe stops the API from expanding to MeSH synonyms: "parkinson's disease" matches 1,703 trials, "parkinson disease" 4,913. Affects any possessive condition name. |
+| condition: parkinson's disease | 43% | **Bug, fixed after this run.** The apostrophe stopped the API's MeSH synonym expansion: "parkinson's disease" matched 1,703 trials, "parkinson disease" 4,913. `sanitize` now drops possessives; the same query now matches 4,913. |
 | drug: car-t | 52% | Not a drug name: trials name the product (e.g. tisagenlecleucel), so the term itself rarely appears. |
 | drug: aspirin | 68% | Aspirin is often background therapy described only in arm text. |
 | drug: adalimumab | 74% | Biosimilar codes and generic arm names. |
