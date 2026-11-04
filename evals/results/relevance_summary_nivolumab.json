@@ -1,0 +1,61 @@
+{
+  "drug": "nivolumab",
+  "api_total": 2039,
+  "fetched": 2039,
+  "synonyms": [
+    "Opdivo",
+    "BMS-936558",
+    "ONO-4538",
+    "MDX-1106",
+    "NIVO",
+    "CMAB819",
+    "Nivolumab Biosimilar CMAB819",
+    "MDX1106",
+    "ABP 206",
+    "Nivolumab Biosimilar ABP 206",
+    "BCD-263",
+    "Nivolumab Biosimilar BCD-263",
+    "BMS 936558",
+    "BMS936558",
+    "MDX 1106",
+    "ONO 4538",
+    "ONO4538",
+    "OPDIVO",
+    "Opdivo\u00ae",
+    "OPDIVO\u00ae",
+    "946414-94-4",
+    "BMS-936558-01",
+    "anti-PD-1, OPDIVO",
+    "opdivo",
+    "Immunotherapy",
+    "Anti-PD-1",
+    "Opdivo, BMS-936558"
+  ],
+  "strong": 1765,
+  "weak": 274,
+  "strong_roles": {
+    "no_arms_listed": 15,
+    "experimental": 1589,
+    "other_arm:OTHER": 20,
+    "other_arm:UNKNOWN": 64,
+    "mesh_only": 24,
+    "active_comparator": 52,
+    "placebo_or_sham": 1
+  },
+  "weak_fields": {
+    "title": 156,
+    "intervention_description": 70,
+    "arm_description": 25,
+    "arm_label": 10,
+    "keyword": 13
+  },
+  "weak_purposes": {
+    "MISSING": 136,
+    "TREATMENT": 114,
+    "OTHER": 8,
+    "SUPPORTIVE_CARE": 2,
+    "DIAGNOSTIC": 10,
+    "BASIC_SCIENCE": 3,
+    "PREVENTION": 1
+  }
+}

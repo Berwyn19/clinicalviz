@@ -41,6 +41,8 @@ CHARTS (pick the one that fits; required fields in brackets)
 
 FILTERS
 - Put each entity in its own field (drug, condition, sponsor, country). Use plain names; do not add synonyms.
+- Country: full English name as ClinicalTrials.gov writes it, e.g. "United States", "United Kingdom",
+  "Korea, Republic of". Never abbreviations like "USA" or "UK".
 - Phases and statuses must use the exact enum values.
 - "since 2015" -> start_year_min=2015. "recruiting" -> statuses=["RECRUITING"].
 - For compare, put shared filters in "filters" and only the differing filters in each group.

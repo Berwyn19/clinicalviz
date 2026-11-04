@@ -1,0 +1,35 @@
+[
+  {"protocolSection": {"identificationModule": {"nctId": "NCT05185739", "briefTitle": "Perioperative Pembrolizumab and Lenvatinib in Resectable Hepatocellular Carcinoma (HCC)"},
+    "statusModule": {"overallStatus": "RECRUITING", "startDateStruct": {"date": "2022-08-25"}},
+    "designModule": {"studyType": "INTERVENTIONAL", "phases": ["PHASE2"]},
+    "armsInterventionsModule": {"interventions": [
+      {"type": "DRUG", "name": "Pembrolizumab"}, {"type": "DRUG", "name": "Lenvatinib"},
+      {"type": "DRUG", "name": "Pembrolizumab and Lenvatinib"}]}}},
+  {"protocolSection": {"identificationModule": {"nctId": "NCT02799095", "briefTitle": "A Study of the Effects of ALKS 4230 (Nemvaleukin Alfa) on Subjects With Solid Tumors"},
+    "statusModule": {"startDateStruct": {"date": "2016-09-14"}},
+    "designModule": {"phases": ["PHASE1", "PHASE2"]},
+    "armsInterventionsModule": {"interventions": [
+      {"type": "BIOLOGICAL", "name": "ALKS 4230"}, {"type": "BIOLOGICAL", "name": "ALKS 4230 + pembrolizumab"}]}}},
+  {"protocolSection": {"identificationModule": {"nctId": "NCT02880228", "briefTitle": "Pembrolizumab, Lenalidomide, and Dexamethasone in Newly Diagnosed Multiple Myeloma"},
+    "statusModule": {"startDateStruct": {"date": "2016-09-16"}},
+    "designModule": {"phases": ["PHASE2"]},
+    "armsInterventionsModule": {"interventions": [
+      {"type": "DRUG", "name": "Dexamethasone", "otherNames": ["Decadron"]},
+      {"type": "OTHER", "name": "Laboratory Biomarker Analysis"},
+      {"type": "DRUG", "name": "Lenalidomide", "otherNames": ["Revlimid"]},
+      {"type": "BIOLOGICAL", "name": "Pembrolizumab", "otherNames": ["Keytruda", "MK-3475"]}]}}},
+  {"protocolSection": {"identificationModule": {"nctId": "NCT09999901", "briefTitle": "Synthetic: sponsor suffix, placebo, dose, partial dates, sites"},
+    "statusModule": {"overallStatus": "COMPLETED", "startDateStruct": {"date": "2015-03"}, "completionDateStruct": {"date": "2017-09"}},
+    "sponsorCollaboratorsModule": {"leadSponsor": {"name": "Merck Sharp & Dohme LLC", "class": "INDUSTRY"}},
+    "conditionsModule": {"conditions": ["Melanoma"]},
+    "designModule": {"studyType": "INTERVENTIONAL", "phases": ["PHASE3"], "enrollmentInfo": {"count": 305}},
+    "armsInterventionsModule": {"interventions": [
+      {"type": "DRUG", "name": "Pembrolizumab 200 mg IV (MK-3475)"}, {"type": "DRUG", "name": "Placebo"}]},
+    "contactsLocationsModule": {"locations": [
+      {"country": "United States", "status": "RECRUITING"}, {"country": "United States", "status": "RECRUITING"},
+      {"country": "Germany", "status": "COMPLETED"}, {"city": "Nowhere"}]}}},
+  {"protocolSection": {"identificationModule": {"nctId": "NCT09999902", "briefTitle": "Synthetic: observational, no phase, no dates"},
+    "designModule": {"studyType": "OBSERVATIONAL", "enrollmentInfo": {"count": "lots"}}}},
+  {"protocolSection": {"identificationModule": {"nctId": "NCT05185739", "briefTitle": "Duplicate of the first record"}}},
+  {"derivedSection": {"note": "Synthetic: broken record with no protocolSection"}}
+]

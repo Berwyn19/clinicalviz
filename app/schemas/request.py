@@ -27,7 +27,7 @@ class QueryRequest(BaseModel):
     start_year: int | None = Field(None, ge=MIN_YEAR, le=MAX_YEAR)
     end_year: int | None = Field(None, ge=MIN_YEAR, le=MAX_YEAR)
 
-    max_trials: int = Field(2000, ge=1, le=5000,
+    max_trials: int = Field(10000, ge=1, le=20000,
                             description="Cap on trials fetched from the API.")
 
     @field_validator("query", "drug_name", "condition", "sponsor", "country", mode="before")
