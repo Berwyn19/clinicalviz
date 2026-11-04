@@ -141,6 +141,12 @@ class CTGovClient:
         data, _ = await self._get_page({**params, "pageSize": "1", "countTotal": "true", "fields": "NCTId"})
         return data.get("totalCount", 0)
 
+    async def first(self, params: dict[str, str], fields: str) -> dict | None:
+        """The first matching study for these params (use a `sort` param to choose which)."""
+        data, _ = await self._get_page({**params, "pageSize": "1", "fields": fields})
+        studies = data.get("studies") or []
+        return studies[0] if studies else None
+
     # ------------------------------------------------------------ internals
 
     async def _get_page(self, params: dict[str, str]) -> tuple[dict, bool]:

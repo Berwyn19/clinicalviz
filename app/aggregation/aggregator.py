@@ -8,6 +8,11 @@ Counting rules (also reported in `notes`):
   drugs, conditions) one trial can count for several values, so totals can exceed
   the number of trials.
 - Each datum lists every NCT ID behind it, plus up to CITATION_LIMIT full citations.
+
+Coverage: if the API matched more trials than were downloaded, the downloaded trials
+are only a sample. Then either the group carries exact API counts (single-valued
+dimensions, see app/ctgov/counts.py) and those are used as the numbers, or the result
+says plainly that it describes a sample. Either way it is in `notes` and `stats`.
 """
 
 import statistics
@@ -22,9 +27,9 @@ from app.schemas.plan import Filters, QueryPlan
 from app.schemas.trial import Trial
 
 from .dimensions import (
-    DIMENSIONS, FILTER_FOR_DIMENSION, NUMERICS, Context, DimensionSpec, Evidence, NumericSpec,
+    DIMENSIONS, FILTER_FOR_DIMENSION, NUMERICS, Context, DimensionSpec, Evidence, NumericSpec, year_range,
 )
-from .models import AggregateResult, Citation, Datum, Edge, Node, TableRow
+from .models import AggregateResult, Citation, Datum, Edge, ExactCounts, Node, TableRow
 
 CITATION_LIMIT = 5
 DEFAULT_TOP_N = 15            # for dimensions without a fixed order (sponsors, countries, ...)
@@ -41,6 +46,17 @@ class Group:
     label: str | None
     filters: Filters
     trials: list[Trial]
+    total_count: int | None = None          # trials the API matched; None = every match was downloaded
+    exact: ExactCounts | None = None        # exact per-bucket counts from the API (truncated groups only)
+    drug_aliases: dict[str, str] = field(default_factory=dict)  # from the normalizer, for query matching
+
+    @property
+    def truncated(self) -> bool:
+        return self.total_count is not None and self.total_count > len(self.trials)
+
+    @property
+    def matched(self) -> int:
+        return self.total_count if self.total_count is not None else len(self.trials)
 
 
 @dataclass
@@ -48,6 +64,7 @@ class _Bucket:
     label: str
     nct_ids: list[str] = field(default_factory=list)
     citations: list[Citation] = field(default_factory=list)
+    exact: int | None = None    # exact API count; nct_ids is then only the downloaded sample
 
     def add(self, nct_id: str, field_path: str, excerpt: str) -> None:
         self.nct_ids.append(nct_id)
@@ -56,7 +73,11 @@ class _Bucket:
 
     @property
     def count(self) -> int:
-        return len(self.nct_ids)
+        return self.exact if self.exact is not None else len(self.nct_ids)
+
+    @property
+    def ids_complete(self) -> bool:
+        return self.exact is None or self.exact == len(self.nct_ids)
 
 
 def _ctx(filters: Filters) -> Context:
@@ -74,8 +95,8 @@ def _dedupe(evidence: list[Evidence]) -> list[Evidence]:
 
 def _datum(x, bucket: _Bucket | None, series, **extra) -> Datum:
     b = bucket or _Bucket(label=str(x))
-    return Datum(x=x, y=b.count, series=series, trial_count=b.count,
-                 nct_ids=b.nct_ids, citations=b.citations, **extra)
+    return Datum(x=x, y=b.count, series=series, trial_count=b.count, nct_ids=b.nct_ids,
+                 nct_ids_complete=b.ids_complete, citations=b.citations, **extra)
 
 
 def _overlap_note(groups: list[Group]) -> list[str]:
@@ -103,6 +124,8 @@ def group_count(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
                 missing[g.label].append(t.nct_id)
             for ev in evidence:
                 buckets.setdefault(ev.key, _Bucket(ev.label)).add(t.nct_id, ev.field, ev.excerpt)
+        if g.exact:
+            buckets = _apply_exact(buckets, g.exact, spec)
         per_series[g.label] = buckets
 
     totals = Counter()
@@ -118,10 +141,14 @@ def group_count(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
     labels = {k: b.label for buckets in per_series.values() for k, b in buckets.items()}
     rows = [_datum(labels[k], per_series[g.label].get(k), g.label) for k in keys for g in groups]
 
-    notes, n_trials = _overlap_note(groups), sum(len(g.trials) for g in groups)
-    n_missing = sum(len(v) for v in missing.values())
-    if n_missing and n_trials and n_missing / n_trials > UNKNOWN_SHARE:
-        for g in groups:
+    notes = _overlap_note(groups)
+    n_trials = sum(g.exact.total if g.exact else len(g.trials) for g in groups)
+    # Groups counted from downloaded records know exactly which trials have no value.
+    counted_here = [g for g in groups if not g.exact]
+    n_missing = sum(len(missing[g.label]) for g in counted_here)
+    n_here = sum(len(g.trials) for g in counted_here)
+    if n_missing and n_here and n_missing / n_here > UNKNOWN_SHARE:
+        for g in counted_here:
             b = _Bucket("Unknown")
             for nct in missing[g.label]:
                 b.add(nct, f"(no {dim.value} value)", "")
@@ -130,6 +157,12 @@ def group_count(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
         labels["__unknown__"] = "Unknown"
     elif n_missing:
         notes.append(f"{n_missing} trials have no {dim.value} value and are not shown.")
+    # Groups with exact API counts only know how many trials fell in none of the counted values.
+    not_counted = sum(g.exact.not_counted for g in groups if g.exact)
+    if not_counted:
+        notes.append(f"{not_counted} trials are not in the bars shown: they have no {dim.value} value, "
+                     "or a rare one that was not in the downloaded sample.")
+        n_missing += not_counted
     if hidden:
         notes.append(f"Showing the top {limit} of {limit + hidden} {dim.value} values; {hidden} more not shown.")
     if spec.multi_valued:
@@ -144,6 +177,17 @@ def group_count(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
         series=[g.label for g in groups if g.label], notes=notes,
         stats={"trials": n_trials, "missing_value": n_missing, "values_not_shown": hidden},
     )
+
+
+def _apply_exact(sample: dict, exact: ExactCounts, spec: DimensionSpec) -> dict:
+    """Exact API counts become the bucket numbers; the sample keeps supplying IDs and citations."""
+    out = {}
+    for key, n in exact.counts.items():
+        if n:
+            b = sample.get(key) or _Bucket(spec.label_of(key))
+            b.exact = n
+            out[key] = b
+    return out
 
 
 def _order_keys(totals: Counter, spec: DimensionSpec, sort: str | None) -> list[str]:
@@ -162,37 +206,53 @@ def _order_keys(totals: Counter, spec: DimensionSpec, sort: str | None) -> list[
 def time_series(plan: QueryPlan, groups: list[Group], today: date) -> AggregateResult:
     spec = DIMENSIONS[Dimension.START_YEAR]
     per_series: dict[str | None, dict[int, _Bucket]] = {}
-    missing, years_seen = 0, set()
+    no_year, years_seen = 0, set()
     for g in groups:
         buckets, ctx = {}, _ctx(g.filters)
         for t in g.trials:
             evidence = spec.extract(t, ctx)
             if not evidence:
-                missing += 1
+                if not g.exact:          # exact groups report their own not-counted total
+                    no_year += 1
                 continue
             ev, year = evidence[0], int(evidence[0].key)
             years_seen.add(year)
             buckets.setdefault(year, _Bucket(ev.label)).add(t.nct_id, ev.field, ev.excerpt)
+        if g.exact:
+            buckets = {int(k): b for k, b in _apply_exact({str(y): b for y, b in buckets.items()}, g.exact, spec).items()}
         per_series[g.label] = buckets
 
     notes = _overlap_note(groups)
-    if not years_seen:
-        return AggregateResult(kind="rows", notes=notes + ["No trials have a start date."],
-                               stats={"missing_value": missing})
-
     current = today.year
-    lo = plan.filters.start_year_min or min(years_seen)
-    hi = plan.filters.start_year_max or min(max(years_seen), current)
-    future = sum(b.count for buckets in per_series.values() for y, b in buckets.items() if y > hi)
+    exact_years = sorted({int(k) for g in groups if g.exact for k in g.exact.counts})
+    if exact_years:      # the years the API was asked to count (chosen with the same year_range rule)
+        lo, hi = exact_years[0], exact_years[-1]
+    elif years_seen:
+        lo, hi = year_range(plan.filters.start_year_min, plan.filters.start_year_max,
+                            min(years_seen), max(years_seen), current)
+    else:
+        return AggregateResult(kind="rows", notes=notes + ["No trials have a start date."],
+                               stats={"missing_value": no_year})
+
+    before = after = 0
+    for g in groups:
+        if not g.exact:
+            before += sum(b.count for y, b in per_series[g.label].items() if y < lo)
+            after += sum(b.count for y, b in per_series[g.label].items() if y > hi)
+    not_counted = sum(g.exact.not_counted for g in groups if g.exact)
 
     rows = [
         _datum(year, per_series[g.label].get(year), g.label, is_partial=(year == current))
         for year in range(lo, hi + 1) for g in groups
     ]
-    if missing:
-        notes.append(f"{missing} trials have no start date and are not shown.")
-    if future:
-        notes.append(f"{future} trials planned to start after {hi} are not shown.")
+    if no_year:
+        notes.append(f"{no_year} trials have no start date and are not shown.")
+    if before:
+        notes.append(f"{before} trials that started before {lo} are not shown.")
+    if after:
+        notes.append(f"{after} trials planned to start after {hi} are not shown.")
+    if not_counted:
+        notes.append(f"{not_counted} trials have no start date or start outside {lo}-{hi} and are not shown.")
     if lo <= current <= hi:
         notes.append(f"{current} is still in progress, so its count is incomplete.")
     notes.append("Years with no trials are shown as 0.")
@@ -200,8 +260,10 @@ def time_series(plan: QueryPlan, groups: list[Group], today: date) -> AggregateR
     return AggregateResult(
         kind="rows", rows=rows, categories=list(range(lo, hi + 1)),
         series=[g.label for g in groups if g.label], notes=notes,
-        stats={"trials": sum(len(g.trials) for g in groups), "missing_value": missing,
-               "future_not_shown": future, "partial_year": current if lo <= current <= hi else None},
+        stats={"trials": sum(g.exact.total if g.exact else len(g.trials) for g in groups),
+               "missing_value": no_year, "before_not_shown": before, "future_not_shown": after,
+               "outside_or_missing_not_shown": not_counted,
+               "partial_year": current if lo <= current <= hi else None},
     )
 
 
@@ -326,11 +388,15 @@ def network(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
     kept_edges = [(k, b) for k, b in kept_edges if b.count >= min_weight]
     connected = {n for (a, b), _ in kept_edges for n in (a, b)}
 
+    aliases = {k: v for g in groups for k, v in g.drug_aliases.items()}
     query_keys = {}
     for dim in {src_dim, tgt_dim}:
         name = FILTER_FOR_DIMENSION.get(dim)
         values = {getattr(g.filters, name) for g in groups} if name else set()
-        query_keys[dim.value] = {make_key(v) for v in values if v}
+        keys = {make_key(v) for v in values if v}
+        if dim == Dimension.INTERVENTION:   # 'Keytruda' in the question matches the 'pembrolizumab' node
+            keys = {aliases.get(k, k) for k in keys}
+        query_keys[dim.value] = keys
 
     def is_match(node_id: str) -> bool:
         kind, key = node_id.split(":", 1)
@@ -351,8 +417,8 @@ def network(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
     if len(groups) > 1:
         notes.append("Compared groups were merged into one network.")
     if any(n.is_query_match for n in out_nodes):
-        notes.append("Nodes marked is_query_match are the entity the question filtered on; "
-                     "they connect to most other nodes by construction.")
+        notes.append("The outlined node is what the question filtered on; it connects to most other "
+                     "nodes because every trial shown includes it.")
     return AggregateResult(
         kind="network", nodes=out_nodes, edges=out_edges, notes=notes,
         stats={"trials": len(trials), "entities_total": len(nodes), "links_total": len(edges),
@@ -375,15 +441,48 @@ def table(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
             ))
     rows.sort(key=lambda r: r.start_date or "", reverse=True)  # newest first; no date last
     limit = plan.limit or TABLE_DEFAULT_LIMIT
-    notes = [f"Showing the {min(limit, len(rows))} most recently started of {len(rows)} trials."] \
-        if len(rows) > limit else []
+    matched = sum(g.matched for g in groups)
+    notes = [f"Showing the {min(limit, len(rows))} trials with the latest start dates "
+             f"(including planned ones) of {matched} matching."] if matched > limit else []
     return AggregateResult(kind="table", table=rows[:limit], notes=notes,
-                           series=[g.label for g in groups if g.label], stats={"trials": len(rows)})
+                           series=[g.label for g in groups if g.label], stats={"trials": matched})
 
 
 # ------------------------------------------------------------------ dispatch
 
+def _coverage(plan: QueryPlan, groups: list[Group]) -> tuple[list[str], dict]:
+    """Say how much of the matching data the result is built on."""
+    notes = []
+    for g in groups:
+        if not g.truncated:
+            continue
+        who = f"[{g.label}] " if g.label else ""
+        if g.exact:
+            notes.append(f"{who}Counts are exact: ClinicalTrials.gov counted all {g.matched:,} matching trials. "
+                         f"Trial IDs and citations list only the {len(g.trials):,} downloaded trials "
+                         "with the latest start dates.")
+        elif plan.intent == Intent.TRIAL_LIST or plan.chart == ChartType.TABLE:
+            continue  # the table note already says it shows the latest trials of all matches
+        else:
+            notes.append(f"{who}Based on a sample: only the {len(g.trials):,} trials with the latest start dates "
+                         f"out of {g.matched:,} matching were downloaded, so these numbers describe that "
+                         "sample, not all matching trials.")
+    stats = {
+        "matched": sum(g.matched for g in groups),
+        "downloaded": sum(len(g.trials) for g in groups),
+        "sampled": any(g.truncated and not g.exact for g in groups),
+        "exact_counts": any(g.exact is not None for g in groups),
+    }
+    return notes, stats
+
+
 def aggregate(plan: QueryPlan, groups: list[Group], today: date | None = None) -> AggregateResult:
+    result = _aggregate(plan, groups, today)
+    notes, stats = _coverage(plan, groups)
+    return result.model_copy(update={"notes": notes + result.notes, "stats": {**result.stats, **stats}})
+
+
+def _aggregate(plan: QueryPlan, groups: list[Group], today: date | None = None) -> AggregateResult:
     if plan.intent == Intent.TRIAL_LIST or plan.chart == ChartType.TABLE:
         return table(plan, groups)
     chart = plan.chart

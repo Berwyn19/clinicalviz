@@ -15,12 +15,29 @@ class Citation(BaseModel):
     excerpt: str      # exact raw value from the API
 
 
+class ExactCounts(BaseModel):
+    """Per-bucket trial counts straight from the API, for one group.
+
+    Used when the download was truncated: the downloaded trials are then only a sample,
+    but the API can still count every bucket of a single-valued dimension exactly.
+    """
+    counts: dict[str, int]                 # dimension key ("PHASE2", "RECRUITING", "2020") -> trials
+    total: int                             # trials matching the group's query
+
+    @property
+    def not_counted(self) -> int:
+        """Trials in none of the counted buckets: no value, a value outside the counted
+        keys (e.g. a year outside the range, a rare value absent from the sample)."""
+        return max(0, self.total - sum(self.counts.values()))
+
+
 class Datum(BaseModel):
     x: str | int | float               # category label, year, bin label, or number (scatter)
     y: int | float                     # trial count, or a number (scatter)
     series: str | None = None          # compare-group label; None for single-series charts
     trial_count: int
-    nct_ids: list[str]                 # every trial behind this datum
+    nct_ids: list[str]                 # trials behind this datum (see nct_ids_complete)
+    nct_ids_complete: bool = True      # False when y is an exact API count but only a sample was downloaded
     citations: list[Citation]          # first few, with exact excerpts
     bin_start: float | None = None     # histogram only (inclusive)
     bin_end: float | None = None       # histogram only (exclusive; None = open-ended)

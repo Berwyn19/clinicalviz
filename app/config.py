@@ -6,7 +6,9 @@ from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).resolve().parent.parent / ".env")
+# override=True: the project's .env wins over variables already exported in the shell
+# (e.g. a global OPENAI_API_KEY for another account).
+load_dotenv(Path(__file__).resolve().parent.parent / ".env", override=True)
 
 
 @dataclass(frozen=True)
@@ -24,6 +26,8 @@ class Settings:
     ctgov_cache_enabled: bool = os.getenv("CTGOV_CACHE_ENABLED", "true").lower() == "true"
     ctgov_cache_dir: str = os.getenv("CTGOV_CACHE_DIR", ".cache/ctgov")
     ctgov_cache_ttl_seconds: int = int(os.getenv("CTGOV_CACHE_TTL_SECONDS", "86400"))
+    # Max tiny count requests per question when a truncated download is replaced by exact counts.
+    ctgov_exact_count_max_requests: int = int(os.getenv("CTGOV_EXACT_COUNT_MAX_REQUESTS", "150"))
 
 
 settings = Settings()

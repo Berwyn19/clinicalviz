@@ -15,9 +15,12 @@ class PlannerError(Exception):
     """No valid plan after all attempts, or the LLM API failed."""
 
 
-def apply_hard_filters(plan: QueryPlan, req: QueryRequest) -> QueryPlan:
-    """Structured request fields always win over what the LLM read from the text."""
-    overrides = {
+TEXT_FILTERS = ("drug", "condition", "sponsor", "country")
+
+
+def hard_filters(req: QueryRequest) -> dict:
+    """Plan filter name -> value fixed by the structured request fields."""
+    fixed = {
         "drug": req.drug_name,
         "condition": req.condition,
         "sponsor": req.sponsor,
@@ -27,7 +30,44 @@ def apply_hard_filters(plan: QueryPlan, req: QueryRequest) -> QueryPlan:
         "start_year_min": req.start_year,
         "start_year_max": req.end_year,
     }
-    overrides = {k: v for k, v in overrides.items() if v is not None}
+    return {k: v for k, v in fixed.items() if v is not None}
+
+
+def _narrows(name: str, value, fixed) -> bool:
+    """Does a compare group's value stay inside the request's fixed value?"""
+    if name in TEXT_FILTERS:
+        return value.strip().lower() == fixed.strip().lower()
+    if name in ("phases", "statuses"):
+        return set(value) <= set(fixed)            # e.g. PHASE2 vs PHASE3 inside phases [2, 3]
+    if name == "start_year_min":
+        return value >= fixed
+    return value <= fixed                          # start_year_max
+
+
+def find_compare_conflicts(plan: QueryPlan, req: QueryRequest) -> list[str]:
+    """Compare groups override shared filters field by field (query_builder.merge_filters),
+    so a group could silently replace a request field. Groups may only narrow those fields."""
+    fixed = hard_filters(req)
+    errors = []
+    for i, group in enumerate(plan.compare or []):
+        for name, fixed_value in fixed.items():
+            value = getattr(group.filters, name)
+            if value is not None and not _narrows(name, value, fixed_value):
+                shown = [v.value for v in fixed_value] if isinstance(fixed_value, list) else fixed_value
+                errors.append(
+                    f"compare[{i}] ('{group.label}') sets {name}, but the request fixes {name}={shown!r}. "
+                    f"Compare groups may only narrow it, so vary a different field "
+                    f"(or use intent 'unsupported' if the question needs to vary {name}).")
+    return errors
+
+
+def apply_hard_filters(plan: QueryPlan, req: QueryRequest) -> QueryPlan:
+    """Structured request fields always win over what the LLM read from the text.
+
+    This sets the shared filters; compare groups that contradict them are rejected
+    by find_compare_conflicts (they would otherwise override the shared filters).
+    """
+    overrides = hard_filters(req)
     if not overrides:
         return plan
 
@@ -59,7 +99,7 @@ async def make_plan(
                 raise PlannerError(f"model refused: {message.refusal}")
             raw_output = message.content
             plan = apply_hard_filters(message.parsed, req)
-            errors = find_plan_errors(plan)
+            errors = find_plan_errors(plan) + find_compare_conflicts(plan, req)
         except (ValidationError, LengthFinishReasonError) as exc:
             # Output didn't match the schema at all (rare with structured outputs).
             errors = [f"output did not match the schema: {exc}"]

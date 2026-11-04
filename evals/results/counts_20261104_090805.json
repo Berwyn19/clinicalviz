@@ -1,0 +1,189 @@
+{
+  "cases": [
+    {
+      "id": "bar_phase_adalimumab",
+      "question": "Show the phase breakdown of adalimumab trials",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "drug": "adalimumab"
+        },
+        "group_by": "phase",
+        "assumptions": []
+      },
+      "dimension": "phase",
+      "matched": {
+        "None": 555
+      },
+      "downloaded": {
+        "None": 555
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Phase 3",
+          "app": 174,
+          "recount": 174,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 4",
+          "app": 136,
+          "recount": 136,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "N/A",
+          "app": 104,
+          "recount": 104,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 2",
+          "app": 79,
+          "recount": 79,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 1",
+          "app": 38,
+          "recount": 38,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 2/3",
+          "app": 13,
+          "recount": 13,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 1/2",
+          "app": 9,
+          "recount": 9,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Early Phase 1",
+          "app": 2,
+          "recount": 2,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_status_remdesivir",
+      "question": "Breakdown of trial statuses for remdesivir",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "drug": "remdesivir"
+        },
+        "group_by": "status",
+        "assumptions": []
+      },
+      "dimension": "status",
+      "matched": {
+        "None": 95
+      },
+      "downloaded": {
+        "None": 95
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Completed",
+          "app": 47,
+          "recount": 47,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Recruiting",
+          "app": 13,
+          "recount": 13,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Terminated",
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Withdrawn",
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Active not recruiting",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Approved for marketing",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Not yet recruiting",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "No longer available",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Suspended",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    }
+  ],
+  "summary": "## Chart numbers\n\n2 charts, 17 bars/points recounted.\n\n- **complete / registry** (17 bars): exactly equal 100% (17/17, 95% CI 82-100%); within 5% 100% (17/17, 95% CI 82-100%); total abs error 0.0% of 631 trials (app undercounts by 0 net); median bar error 0.0%\n\nBy dimension (complete downloads only):\n\n- phase (8 bars): exactly equal 100% (8/8, 95% CI 68-100%); within 5% 100% (8/8, 95% CI 68-100%); total abs error 0.0% of 555 trials (app undercounts by 0 net); median bar error 0.0%\n- status (9 bars): exactly equal 100% (9/9, 95% CI 70-100%); within 5% 100% (9/9, 95% CI 70-100%); total abs error 0.0% of 76 trials (app undercounts by 0 net); median bar error 0.0%\n\nLargest gaps:\n"
+}

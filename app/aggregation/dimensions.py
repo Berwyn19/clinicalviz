@@ -10,7 +10,8 @@ from dataclasses import dataclass, field
 from typing import Callable, Literal
 
 from app.processing.normalizer import make_key
-from app.schemas.common import Dimension, NumericField
+from app.schemas.common import Dimension, NumericField, Phase
+from app.schemas.request import MIN_YEAR
 from app.schemas.trial import Trial
 
 
@@ -33,6 +34,10 @@ class DimensionSpec:
     extract: Callable[[Trial, Context], list[Evidence]]
     multi_valued: bool                 # can one trial have several values?
     order: list[str] | None = None     # fixed key order; None = order by count
+    # API search condition matching trials whose value is exactly this key. Set only when
+    # the API can count a value exactly, so truncated downloads can use exact counts.
+    api_condition: Callable[[str], str] | None = None
+    label_of: Callable[[str], str] = str   # display label for a key (when no trial supplied one)
 
 
 @dataclass(frozen=True)
@@ -69,6 +74,43 @@ def pretty(code: str) -> str:
 
 def _one(key, label, field_path, excerpt) -> list[Evidence]:
     return [Evidence(key, label, field_path, str(excerpt))]
+
+
+def year_range(start_min: int | None, start_max: int | None, first: int, last: int, current: int
+               ) -> tuple[int, int]:
+    """Years a time series shows. The one rule, used for downloaded data and for API counts.
+
+    Filter years win. Otherwise from the first start year (not before MIN_YEAR) to the
+    current year. If only future years are asked for, show them.
+    """
+    lo = start_min or max(first, MIN_YEAR)
+    hi = start_max or min(last, current)
+    if lo > hi:
+        hi = max(lo, last)
+    return lo, hi
+
+
+# ------------------------------------------------------------------ API conditions
+
+_PHASES = [p.value for p in Phase if p != Phase.NA]
+
+
+def _phase_condition(key: str) -> str:
+    """Exactly this combination, as the normalizer labels it: 'PHASE1/PHASE2' = both and no other
+    phase; 'NA' = none of the phases."""
+    if key == "NA":
+        return "NOT AREA[Phase](" + " OR ".join(_PHASES) + ")"
+    wanted = key.split("/")
+    return " AND ".join([f"AREA[Phase]({p})" for p in wanted]
+                        + [f"NOT AREA[Phase]({p})" for p in _PHASES if p not in wanted])
+
+
+def _field_condition(api_field: str) -> Callable[[str], str]:
+    return lambda key: f"AREA[{api_field}]({key})"
+
+
+def _year_condition(key: str) -> str:
+    return f"AREA[StartDate]RANGE[{key}-01-01,{key}-12-31]"
 
 
 # ------------------------------------------------------------------ extractors
@@ -129,8 +171,9 @@ def _intervention(t, ctx):
         if not iv.is_drug_like:
             continue
         single = len(iv.components) == 1
-        for comp in iv.components:
-            label = iv.display if single else comp[:1].upper() + comp[1:]
+        displays = iv.component_displays if len(iv.component_displays) == len(iv.components) else []
+        for i, comp in enumerate(iv.components):
+            label = displays[i] if displays else (iv.display if single else comp[:1].upper() + comp[1:])
             ev = Evidence(comp, label, "protocolSection.armsInterventionsModule.interventions[].name", iv.name)
             # Prefer evidence from a single-drug entry over a combined "A and B" entry.
             if comp not in found or single:
@@ -151,16 +194,20 @@ def _study_type(t, ctx):
 
 
 DIMENSIONS: dict[Dimension, DimensionSpec] = {
-    Dimension.PHASE: DimensionSpec(_phase, multi_valued=False, order=PHASE_ORDER),
-    Dimension.START_YEAR: DimensionSpec(_start_year, multi_valued=False),
-    Dimension.STATUS: DimensionSpec(_status, multi_valued=False),
+    Dimension.PHASE: DimensionSpec(_phase, multi_valued=False, order=PHASE_ORDER, api_condition=_phase_condition,
+                                   label_of=phase_label),
+    Dimension.START_YEAR: DimensionSpec(_start_year, multi_valued=False, api_condition=_year_condition),
+    Dimension.STATUS: DimensionSpec(_status, multi_valued=False, api_condition=_field_condition("OverallStatus"),
+                                    label_of=pretty),
     Dimension.COUNTRY: DimensionSpec(_country, multi_valued=True),
     Dimension.LEAD_SPONSOR: DimensionSpec(_lead_sponsor, multi_valued=False),
-    Dimension.SPONSOR_CLASS: DimensionSpec(_sponsor_class, multi_valued=False),
+    Dimension.SPONSOR_CLASS: DimensionSpec(_sponsor_class, multi_valued=False,
+                                           api_condition=_field_condition("LeadSponsorClass"), label_of=pretty),
     Dimension.INTERVENTION_TYPE: DimensionSpec(_intervention_type, multi_valued=True),
     Dimension.INTERVENTION: DimensionSpec(_intervention, multi_valued=True),
     Dimension.CONDITION: DimensionSpec(_condition, multi_valued=True),
-    Dimension.STUDY_TYPE: DimensionSpec(_study_type, multi_valued=False),
+    Dimension.STUDY_TYPE: DimensionSpec(_study_type, multi_valued=False,
+                                        api_condition=_field_condition("StudyType"), label_of=pretty),
 }
 
 # Which filter a dimension's values can match (used to mark hub nodes in networks).

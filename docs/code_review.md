@@ -2,6 +2,17 @@
 
 Reviewed 2026-11-03 at commit `4cfd25f`, plus uncommitted work (`app/aggregation/`, `scripts/run_pipeline.py`, `tests/test_aggregator.py`, and the `Site.status` default in `app/schemas/trial.py`).
 
+## Status (updated 2026-11-03)
+
+| Issue | Status |
+|---|---|
+| C1 truncated fetches | **Fixed.** `app/ctgov/counts.py` and `app/pipeline.py` replace sample counts with exact API counts for phase, status, sponsor class, study type and start year. Other charts are labelled as a sample of the trials with the latest start dates (the download is now sorted by start date). Every result has `matched`, `downloaded`, `sampled` and `exact_counts` in `stats`. Live check: the 2020 cancer bar is now 4,416 (was 487). |
+| H1 placebo combos | **Fixed.** Placebo is removed per component. |
+| H2 drug synonyms | **Improved with general rules only (no word lists).** Synonyms are learned from each result's own `otherNames`, text in parentheses, and MeSH terms (linked by elimination within a trial). On held-out drugs, the share of matched trials that count the searched drug went from 60-86% to 68-90%. Formulation variants such as "metformin hydrochloride" are still separate keys; that accuracy loss was accepted. |
+| H3 hard filters vs compare | **Fixed.** `find_compare_conflicts` rejects compare groups that replace a request field and sends the error back to the LLM. Narrowing (phase 2 vs 3 inside phases [2, 3]) is allowed. |
+| H4 cache in git | **Partly fixed.** Untracked and gitignored in `779f912`. The files are still in history (`4cfd25f` is on GitHub). |
+| M4 future-only time series | **Fixed** along with C1. |
+
 ## How this was reviewed
 
 - Read every file in `app/`, `scripts/`, and `tests/`, plus the eval outputs.

@@ -39,7 +39,8 @@ BROAD_PARAMS = {
 # Always fetched: needed for citations, the trial table, and basic sanity checks.
 BASE_FIELDS = ["NCTId", "BriefTitle", "OverallStatus", "StartDate", "Phase", "StudyType"]
 
-INTERVENTION_FIELDS = ["InterventionName", "InterventionOtherName", "InterventionType"]
+# MeSH terms are the registry's standard drug names; the normalizer uses them to merge synonyms.
+INTERVENTION_FIELDS = ["InterventionName", "InterventionOtherName", "InterventionType", "InterventionMeshTerm"]
 
 # Extra fields needed to group by each dimension.
 DIMENSION_FIELDS = {
@@ -62,6 +63,8 @@ NUMERIC_FIELDS = {
 }
 
 TABLE_FIELDS = ["LeadSponsorName", "Condition", "EnrollmentCount", *INTERVENTION_FIELDS]
+
+SAMPLE_SORT = "StartDate:desc"
 
 
 @dataclass(frozen=True)
@@ -164,6 +167,9 @@ def build_queries(plan: QueryPlan) -> list[ApiQuery]:
         filters = merge_filters(plan.filters, group.filters) if group else plan.filters
         params = strict_params(filters)
         params["fields"] = ",".join(select_fields(plan, filters))
+        # Newest first: if the download is cut at max_trials, the sample is "the N trials with
+        # the latest start dates" (describable) instead of an arbitrary slice.
+        params["sort"] = SAMPLE_SORT
         queries.append(ApiQuery(
             label=group.label if group else None,
             filters=filters,

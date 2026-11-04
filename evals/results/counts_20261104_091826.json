@@ -1,0 +1,5078 @@
+{
+  "cases": [
+    {
+      "id": "ts_semaglutide",
+      "question": "How many semaglutide trials have started each year?",
+      "plan": {
+        "intent": "chart",
+        "chart": "time_series",
+        "filters": {
+          "drug": "semaglutide"
+        },
+        "group_by": "start_year",
+        "assumptions": []
+      },
+      "dimension": "start_year",
+      "matched": {
+        "None": 650
+      },
+      "downloaded": {
+        "None": 650
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": 2007,
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2008,
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2009,
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2010,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2011,
+          "app": 2,
+          "recount": 2,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2012,
+          "app": 4,
+          "recount": 4,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2013,
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2014,
+          "app": 19,
+          "recount": 19,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2015,
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2016,
+          "app": 12,
+          "recount": 12,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2017,
+          "app": 11,
+          "recount": 11,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2018,
+          "app": 20,
+          "recount": 20,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2019,
+          "app": 40,
+          "recount": 40,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2020,
+          "app": 22,
+          "recount": 22,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2021,
+          "app": 45,
+          "recount": 45,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2022,
+          "app": 62,
+          "recount": 62,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2023,
+          "app": 74,
+          "recount": 74,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2024,
+          "app": 91,
+          "recount": 91,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2025,
+          "app": 94,
+          "recount": 94,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2026,
+          "app": 125,
+          "recount": 125,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_phase_adalimumab",
+      "question": "Show the phase breakdown of adalimumab trials",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "drug": "adalimumab"
+        },
+        "group_by": "phase",
+        "assumptions": []
+      },
+      "dimension": "phase",
+      "matched": {
+        "None": 555
+      },
+      "downloaded": {
+        "None": 555
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Phase 3",
+          "app": 174,
+          "recount": 174,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 4",
+          "app": 136,
+          "recount": 136,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "N/A",
+          "app": 104,
+          "recount": 104,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 2",
+          "app": 79,
+          "recount": 79,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 1",
+          "app": 38,
+          "recount": 38,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 2/3",
+          "app": 13,
+          "recount": 13,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 1/2",
+          "app": 9,
+          "recount": 9,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Early Phase 1",
+          "app": 2,
+          "recount": 2,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_country_psoriasis",
+      "question": "Which countries run the most trials for psoriasis?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "psoriasis"
+        },
+        "group_by": "country",
+        "sort": "value_desc",
+        "assumptions": []
+      },
+      "dimension": "country",
+      "matched": {
+        "None": 2100
+      },
+      "downloaded": {
+        "None": 2100
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "United States",
+          "app": 785,
+          "recount": 785,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Canada",
+          "app": 311,
+          "recount": 311,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Germany",
+          "app": 310,
+          "recount": 310,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "China",
+          "app": 209,
+          "recount": 209,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "France",
+          "app": 192,
+          "recount": 192,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Poland",
+          "app": 172,
+          "recount": 172,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "United Kingdom",
+          "app": 164,
+          "recount": 164,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Spain",
+          "app": 141,
+          "recount": 141,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Japan",
+          "app": 114,
+          "recount": 114,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Hungary",
+          "app": 108,
+          "recount": 108,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Italy",
+          "app": 107,
+          "recount": 107,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Belgium",
+          "app": 99,
+          "recount": 99,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Australia",
+          "app": 91,
+          "recount": 91,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Czechia",
+          "app": 79,
+          "recount": 79,
+          "class": "complete",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "id": "grouped_phase_asthma_copd",
+      "question": "Compare asthma and COPD trials by phase",
+      "plan": {
+        "intent": "chart",
+        "chart": "grouped_bar_chart",
+        "filters": {},
+        "group_by": "phase",
+        "compare": [
+          {
+            "label": "S1: asthma",
+            "filters": {
+              "condition": "asthma"
+            }
+          },
+          {
+            "label": "S2: copd",
+            "filters": {
+              "condition": "copd"
+            }
+          }
+        ],
+        "assumptions": []
+      },
+      "dimension": "phase",
+      "matched": {
+        "S1: asthma": 5138,
+        "S2: copd": 4445
+      },
+      "downloaded": {
+        "S1: asthma": 5138,
+        "S2: copd": 4445
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": "S1: asthma",
+          "x": "N/A",
+          "app": 2895,
+          "recount": 2895,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: asthma",
+          "x": "Phase 2",
+          "app": 638,
+          "recount": 638,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: asthma",
+          "x": "Phase 3",
+          "app": 615,
+          "recount": 615,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: asthma",
+          "x": "Phase 4",
+          "app": 478,
+          "recount": 478,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: asthma",
+          "x": "Phase 1",
+          "app": 372,
+          "recount": 372,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: asthma",
+          "x": "Phase 1/2",
+          "app": 59,
+          "recount": 59,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: asthma",
+          "x": "Phase 2/3",
+          "app": 54,
+          "recount": 54,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: asthma",
+          "x": "Early Phase 1",
+          "app": 27,
+          "recount": 27,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: copd",
+          "x": "N/A",
+          "app": 3181,
+          "recount": 3181,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: copd",
+          "x": "Phase 3",
+          "app": 330,
+          "recount": 330,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: copd",
+          "x": "Phase 2",
+          "app": 323,
+          "recount": 323,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: copd",
+          "x": "Phase 4",
+          "app": 323,
+          "recount": 323,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: copd",
+          "x": "Phase 1",
+          "app": 172,
+          "recount": 172,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: copd",
+          "x": "Phase 1/2",
+          "app": 53,
+          "recount": 53,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: copd",
+          "x": "Phase 2/3",
+          "app": 36,
+          "recount": 36,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: copd",
+          "x": "Early Phase 1",
+          "app": 27,
+          "recount": 27,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "hist_enrollment_alzheimers",
+      "question": "What is the distribution of enrollment sizes in completed Alzheimer's disease trials?",
+      "plan": {
+        "intent": "chart",
+        "chart": "histogram",
+        "filters": {
+          "condition": "alzheimer's disease",
+          "statuses": [
+            "COMPLETED"
+          ]
+        },
+        "numeric_field": "enrollment",
+        "assumptions": []
+      },
+      "dimension": "enrollment",
+      "matched": {
+        "None": 2161
+      },
+      "downloaded": {
+        "None": 2161
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "0",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "1\u201310",
+          "app": 104,
+          "recount": 104,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "11\u201350",
+          "app": 758,
+          "recount": 758,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "51\u2013100",
+          "app": 441,
+          "recount": 441,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "101\u2013500",
+          "app": 598,
+          "recount": 598,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "501\u20131,000",
+          "app": 127,
+          "recount": 127,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "1,001\u20135,000",
+          "app": 81,
+          "recount": 81,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "5,001\u201310,000",
+          "app": 9,
+          "recount": 9,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "10,001+",
+          "app": 18,
+          "recount": 18,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "combos_rituximab",
+      "question": "Which drugs are most often tested together with rituximab?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "drug": "rituximab"
+        },
+        "group_by": "intervention",
+        "assumptions": []
+      },
+      "dimension": "intervention",
+      "matched": {
+        "None": 2262
+      },
+      "downloaded": {
+        "None": 2262
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Rituximab",
+          "app": 1954,
+          "recount": 2262,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 308,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00005780": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "EPOCH-R",
+                  "otherNames": [
+                    "Etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, and rituximab"
+                  ]
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "GM-CSF",
+                  "otherNames": [
+                    "Sargramostim"
+                  ]
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "Idiotype vaccine"
+                }
+              ]
+            },
+            "NCT00078234": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Oblimersen-rituximab-fludarabine"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Cyclophosphamide",
+          "app": 495,
+          "recount": 607,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 112,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00005780": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "EPOCH-R",
+                  "otherNames": [
+                    "Etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, and rituximab"
+                  ]
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "GM-CSF",
+                  "otherNames": [
+                    "Sargramostim"
+                  ]
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "Idiotype vaccine"
+                }
+              ]
+            },
+            "NCT00001379": {
+              "truncated": "{\"interventions\": [{\"type\": \"BIOLOGICAL\", \"name\": \"Interferon\", \"otherNames\": [\"IFN\"]}, {\"type\": \"DRUG\", \"name\": \"Rituxan and EPOCH\", \"otherNames\": [\"Rituximab\", \"etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, rituximab\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Tumor biopsy\", \"otherNames\": [\"Tumor bx\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Bone marrow biopsy\", \"otherNames\": [\"BM biopsy\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"Bone marrow aspirate\", \"otherNames\": [\"BM aspirate\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Lumber puncture\", \"otherNames\": [\"LP\"]}, {\"type\": \"DIAGNOSTIC_TEST\", \"name\": \"CT\""
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Prednisone",
+          "app": 294,
+          "recount": 361,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 67,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00005780": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "EPOCH-R",
+                  "otherNames": [
+                    "Etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, and rituximab"
+                  ]
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "GM-CSF",
+                  "otherNames": [
+                    "Sargramostim"
+                  ]
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "Idiotype vaccine"
+                }
+              ]
+            },
+            "NCT00001379": {
+              "truncated": "{\"interventions\": [{\"type\": \"BIOLOGICAL\", \"name\": \"Interferon\", \"otherNames\": [\"IFN\"]}, {\"type\": \"DRUG\", \"name\": \"Rituxan and EPOCH\", \"otherNames\": [\"Rituximab\", \"etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, rituximab\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Tumor biopsy\", \"otherNames\": [\"Tumor bx\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Bone marrow biopsy\", \"otherNames\": [\"BM biopsy\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"Bone marrow aspirate\", \"otherNames\": [\"BM aspirate\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Lumber puncture\", \"otherNames\": [\"LP\"]}, {\"type\": \"DIAGNOSTIC_TEST\", \"name\": \"CT\""
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Vincristine",
+          "app": 190,
+          "recount": 365,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 175,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00001379": {
+              "truncated": "{\"interventions\": [{\"type\": \"BIOLOGICAL\", \"name\": \"Interferon\", \"otherNames\": [\"IFN\"]}, {\"type\": \"DRUG\", \"name\": \"Rituxan and EPOCH\", \"otherNames\": [\"Rituximab\", \"etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, rituximab\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Tumor biopsy\", \"otherNames\": [\"Tumor bx\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Bone marrow biopsy\", \"otherNames\": [\"BM biopsy\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"Bone marrow aspirate\", \"otherNames\": [\"BM aspirate\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Lumber puncture\", \"otherNames\": [\"LP\"]}, {\"type\": \"DIAGNOSTIC_TEST\", \"name\": \"CT\""
+            },
+            "NCT00003150": {
+              "interventions": [
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "rituximab"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CHOP regimen"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "cyclophosphamide"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "doxorubicin hydrochloride"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "prednisone"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "vincristine sulfate"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Doxorubicin",
+          "app": 178,
+          "recount": 347,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 169,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00001379": {
+              "truncated": "{\"interventions\": [{\"type\": \"BIOLOGICAL\", \"name\": \"Interferon\", \"otherNames\": [\"IFN\"]}, {\"type\": \"DRUG\", \"name\": \"Rituxan and EPOCH\", \"otherNames\": [\"Rituximab\", \"etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, rituximab\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Tumor biopsy\", \"otherNames\": [\"Tumor bx\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Bone marrow biopsy\", \"otherNames\": [\"BM biopsy\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"Bone marrow aspirate\", \"otherNames\": [\"BM aspirate\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Lumber puncture\", \"otherNames\": [\"LP\"]}, {\"type\": \"DIAGNOSTIC_TEST\", \"name\": \"CT\""
+            },
+            "NCT00003150": {
+              "interventions": [
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "rituximab"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CHOP regimen"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "cyclophosphamide"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "doxorubicin hydrochloride"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "prednisone"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "vincristine sulfate"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "lenalidomide",
+          "app": 172,
+          "recount": 199,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 27,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT01005979": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Lenalidomide, Rituximab, and Cyclophosphamide",
+                  "otherNames": [
+                    "Revlimid",
+                    "Rituxan",
+                    "Mab Thera",
+                    "Endoxan",
+                    "Cytoxan",
+                    "Neosar",
+                    "Procytox",
+                    "Revimmune"
+                  ]
+                }
+              ]
+            },
+            "NCT00963534": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "lenalidomide, bendamustine, rituximab"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "lenalidomide, bendamustine, rituximab"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Bendamustine",
+          "app": 163,
+          "recount": 193,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 1,
+          "only_in_recount": 31,
+          "examples_only_in_app": {
+            "NCT01718691": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "SyB L-0501"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "rituximab"
+                }
+              ]
+            }
+          },
+          "examples_only_in_recount": {
+            "NCT00963534": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "lenalidomide, bendamustine, rituximab"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "lenalidomide, bendamustine, rituximab"
+                }
+              ]
+            },
+            "NCT00868413": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "ABT-263"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "FCR",
+                  "otherNames": [
+                    "fludarabine, cyclophosphamide, rituximab"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "BR",
+                  "otherNames": [
+                    "bendamustine, rituximab"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Etoposide",
+          "app": 155,
+          "recount": 200,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 45,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00005780": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "EPOCH-R",
+                  "otherNames": [
+                    "Etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, and rituximab"
+                  ]
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "GM-CSF",
+                  "otherNames": [
+                    "Sargramostim"
+                  ]
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "Idiotype vaccine"
+                }
+              ]
+            },
+            "NCT00001379": {
+              "truncated": "{\"interventions\": [{\"type\": \"BIOLOGICAL\", \"name\": \"Interferon\", \"otherNames\": [\"IFN\"]}, {\"type\": \"DRUG\", \"name\": \"Rituxan and EPOCH\", \"otherNames\": [\"Rituximab\", \"etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, rituximab\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Tumor biopsy\", \"otherNames\": [\"Tumor bx\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Bone marrow biopsy\", \"otherNames\": [\"BM biopsy\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"Bone marrow aspirate\", \"otherNames\": [\"BM aspirate\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Lumber puncture\", \"otherNames\": [\"LP\"]}, {\"type\": \"DIAGNOSTIC_TEST\", \"name\": \"CT\""
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Methotrexate",
+          "app": 151,
+          "recount": 178,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 1,
+          "only_in_recount": 28,
+          "examples_only_in_app": {
+            "NCT07185373": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Teniposide"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Orelabrutinib"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "MTX"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Rituximab (R)"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Dexamethasone"
+                }
+              ]
+            }
+          },
+          "examples_only_in_recount": {
+            "NCT00210379": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "rituximab"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CHOP"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "intrathecal methotrexate"
+                },
+                {
+                  "type": "PROCEDURE",
+                  "name": "radiotherapy"
+                }
+              ]
+            },
+            "NCT00096460": {
+              "truncated": "{\"interventions\": [{\"type\": \"DRUG\", \"name\": \"Cyclophosphamide and Rituximab\", \"otherNames\": [\"Cytoxan\\u00ae and Rituxan\"]}, {\"type\": \"DRUG\", \"name\": \"Filgrastim\", \"otherNames\": [\"G-CSF\"]}, {\"type\": \"RADIATION\", \"name\": \"Chemotherapy or Radiation therapy\", \"otherNames\": [\"Etoposide and Carmustine\", \"BCNU and VP-16\"]}, {\"type\": \"DRUG\", \"name\": \"Non-myeloablative Conditioning regimen\", \"otherNames\": [\"Fludarabine, Cyclophosphamide, and Rituximab\", \"Fludara, Cytoxan\\u00ae, and Rituxan\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Allogeneic transplant\", \"otherNames\": [\"HSCT\"]}, {\"type\": \"PROCEDURE\", \"name\": "
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Dexamethasone",
+          "app": 131,
+          "recount": 150,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 19,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00166439": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Oxaliplatin, Cytosine Arabinoside, Dexamethasone With Rituxan (ROAD)"
+                }
+              ]
+            },
+            "NCT00198978": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Cyclophosphamide"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Dexamethasone / Prednisolone"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Cytarabine"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Idarubicin"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Granulocyte-Colony-Stimulating Factor"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Mercaptopurine"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Methotrexate"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Rituximab"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "HDARAC"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Vincristine"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Depocyte"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Asparaginase"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Fludarabine",
+          "app": 131,
+          "recount": 199,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 68,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00001586": {
+              "interventions": [
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "Rituximab",
+                  "otherNames": [
+                    "Rituximab 375 mg/m^2 by infusion on day 1, cycle 1. Repeated every 28 days."
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Fludarabine phosphate",
+                  "otherNames": [
+                    "Fludarabine on day 2-6, 25 mg/m^2 day x 5 days administered as an intravenous push or intravenous piggyback over 10-30 minutes, repeated every 28 days."
+                  ]
+                },
+                {
+                  "type": "OTHER",
+                  "name": "Leukemic or stroma cells"
+                }
+              ]
+            },
+            "NCT00003204": {
+              "truncated": "{\"interventions\": [{\"type\": \"DRUG\", \"name\": \"cyclophosphamide\", \"otherNames\": [\"CPM\", \"CTX\", \"Cytoxan\", \"Endoxan\", \"Endoxana\"]}, {\"type\": \"DRUG\", \"name\": \"fludarabine phosphate\", \"otherNames\": [\"2-F-ara-AMP\", \"Beneflur\", \"Fludara\"]}, {\"type\": \"DRUG\", \"name\": \"vincristine sulfate\", \"otherNames\": [\"leurocristine sulfate\", \"VCR\", \"Vincasar PFS\"]}, {\"type\": \"DRUG\", \"name\": \"prednisone\", \"otherNames\": [\"DeCortin\", \"Deltra\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"rituximab\", \"otherNames\": [\"IDEC-C2B8\", \"IDEC-C2B8 monoclonal antibody\", \"Mabthera\", \"MOAB IDEC-C2B8\", \"Rituxan\"]}, {\"type\": \"OTHER\", \"name\": \""
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Cytarabine",
+          "app": 127,
+          "recount": 160,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 33,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00166439": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Oxaliplatin, Cytosine Arabinoside, Dexamethasone With Rituxan (ROAD)"
+                }
+              ]
+            },
+            "NCT00367497": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Rituximab, Etoposide, Methylprednisolone, Cytarabine, Cisplatin"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Vincristine Sulfate",
+          "app": 99,
+          "recount": 365,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 266,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00001337": {
+              "truncated": "{\"interventions\": [{\"type\": \"DRUG\", \"name\": \"Etoposide\", \"otherNames\": [\"VP-16\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"Rituximab\", \"otherNames\": [\"Rituxan\"]}, {\"type\": \"DRUG\", \"name\": \"Prednisone\", \"otherNames\": [\"Rayos\", \"Deltasone\", \"Prednisone Intensol\"]}, {\"type\": \"DRUG\", \"name\": \"Cyclophosphamide\", \"otherNames\": [\"Cytoxan\"]}, {\"type\": \"DRUG\", \"name\": \"Vincristine\", \"otherNames\": [\"Marqibo\", \"Vincasar PFS\"]}, {\"type\": \"DRUG\", \"name\": \"Doxorubicin\", \"otherNames\": [\"Lipodox\", \"Lipodox 50\", \"Doxil\"]}, {\"type\": \"DIAGNOSTIC_TEST\", \"name\": \"MRI\", \"otherNames\": [\"Magnetic resonance imaging\"]}, {\"type"
+            },
+            "NCT00001379": {
+              "truncated": "{\"interventions\": [{\"type\": \"BIOLOGICAL\", \"name\": \"Interferon\", \"otherNames\": [\"IFN\"]}, {\"type\": \"DRUG\", \"name\": \"Rituxan and EPOCH\", \"otherNames\": [\"Rituximab\", \"etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, rituximab\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Tumor biopsy\", \"otherNames\": [\"Tumor bx\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Bone marrow biopsy\", \"otherNames\": [\"BM biopsy\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"Bone marrow aspirate\", \"otherNames\": [\"BM aspirate\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Lumber puncture\", \"otherNames\": [\"LP\"]}, {\"type\": \"DIAGNOSTIC_TEST\", \"name\": \"CT\""
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Doxorubicin Hydrochloride",
+          "app": 97,
+          "recount": 347,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 250,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00001337": {
+              "truncated": "{\"interventions\": [{\"type\": \"DRUG\", \"name\": \"Etoposide\", \"otherNames\": [\"VP-16\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"Rituximab\", \"otherNames\": [\"Rituxan\"]}, {\"type\": \"DRUG\", \"name\": \"Prednisone\", \"otherNames\": [\"Rayos\", \"Deltasone\", \"Prednisone Intensol\"]}, {\"type\": \"DRUG\", \"name\": \"Cyclophosphamide\", \"otherNames\": [\"Cytoxan\"]}, {\"type\": \"DRUG\", \"name\": \"Vincristine\", \"otherNames\": [\"Marqibo\", \"Vincasar PFS\"]}, {\"type\": \"DRUG\", \"name\": \"Doxorubicin\", \"otherNames\": [\"Lipodox\", \"Lipodox 50\", \"Doxil\"]}, {\"type\": \"DIAGNOSTIC_TEST\", \"name\": \"MRI\", \"otherNames\": [\"Magnetic resonance imaging\"]}, {\"type"
+            },
+            "NCT00001379": {
+              "truncated": "{\"interventions\": [{\"type\": \"BIOLOGICAL\", \"name\": \"Interferon\", \"otherNames\": [\"IFN\"]}, {\"type\": \"DRUG\", \"name\": \"Rituxan and EPOCH\", \"otherNames\": [\"Rituximab\", \"etoposide, prednisone, vincristine, cyclophosphamide, doxorubicin, rituximab\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Tumor biopsy\", \"otherNames\": [\"Tumor bx\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Bone marrow biopsy\", \"otherNames\": [\"BM biopsy\"]}, {\"type\": \"BIOLOGICAL\", \"name\": \"Bone marrow aspirate\", \"otherNames\": [\"BM aspirate\"]}, {\"type\": \"PROCEDURE\", \"name\": \"Lumber puncture\", \"otherNames\": [\"LP\"]}, {\"type\": \"DIAGNOSTIC_TEST\", \"name\": \"CT\""
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "bortezomib",
+          "app": 85,
+          "recount": 102,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 17,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00151320": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Bortezomib, CHOP, Rituximab",
+                  "otherNames": [
+                    "VELCADE"
+                  ]
+                }
+              ]
+            },
+            "NCT00504751": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "bortezomib, dexamethasone, ifosfamide"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "mesna, cisplatin, etoposide, rituximab"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "top5_sponsors_hcc",
+      "question": "Who are the top 5 lead sponsors of hepatocellular carcinoma trials?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "hepatocellular carcinoma"
+        },
+        "group_by": "lead_sponsor",
+        "sort": "value_desc",
+        "limit": 5,
+        "assumptions": []
+      },
+      "dimension": "lead_sponsor",
+      "matched": {
+        "None": 3771
+      },
+      "downloaded": {
+        "None": 3771
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Sun Yat-sen University",
+          "app": 187,
+          "recount": 226,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 39,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT01668381": {
+              "leadSponsor": {
+                "name": "First Affiliated Hospital, Sun Yat-Sen University"
+              }
+            },
+            "NCT01892072": {
+              "leadSponsor": {
+                "name": "First Affiliated Hospital, Sun Yat-Sen University"
+              }
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "National Cancer Institute (NCI)",
+          "app": 83,
+          "recount": 83,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Shanghai Zhongshan Hospital",
+          "app": 64,
+          "recount": 64,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Seoul National University Hospital",
+          "app": 62,
+          "recount": 62,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Eastern Hepatobiliary Surgery Hospital",
+          "app": 51,
+          "recount": 51,
+          "class": "complete",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "id": "ts_tamoxifen_since2010",
+      "question": "How has the number of tamoxifen trials changed since 2010?",
+      "plan": {
+        "intent": "chart",
+        "chart": "time_series",
+        "filters": {
+          "drug": "tamoxifen",
+          "start_year_min": 2010
+        },
+        "group_by": "start_year",
+        "assumptions": []
+      },
+      "dimension": "start_year",
+      "matched": {
+        "None": 231
+      },
+      "downloaded": {
+        "None": 231
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": 2010,
+          "app": 6,
+          "recount": 6,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2011,
+          "app": 10,
+          "recount": 10,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2012,
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2013,
+          "app": 7,
+          "recount": 7,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2014,
+          "app": 19,
+          "recount": 19,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2015,
+          "app": 16,
+          "recount": 16,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2016,
+          "app": 13,
+          "recount": 13,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2017,
+          "app": 20,
+          "recount": 20,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2018,
+          "app": 14,
+          "recount": 14,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2019,
+          "app": 15,
+          "recount": 15,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2020,
+          "app": 13,
+          "recount": 13,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2021,
+          "app": 16,
+          "recount": 16,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2022,
+          "app": 17,
+          "recount": 17,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2023,
+          "app": 16,
+          "recount": 16,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2024,
+          "app": 15,
+          "recount": 15,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2025,
+          "app": 14,
+          "recount": 14,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2026,
+          "app": 11,
+          "recount": 11,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_status_remdesivir",
+      "question": "Breakdown of trial statuses for remdesivir",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "drug": "remdesivir"
+        },
+        "group_by": "status",
+        "assumptions": []
+      },
+      "dimension": "status",
+      "matched": {
+        "None": 95
+      },
+      "downloaded": {
+        "None": 95
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Completed",
+          "app": 47,
+          "recount": 47,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Recruiting",
+          "app": 13,
+          "recount": 13,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Terminated",
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Withdrawn",
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Active not recruiting",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Approved for marketing",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Not yet recruiting",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "No longer available",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Suspended",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_sponsorclass_obesity",
+      "question": "Is industry or academia sponsoring more obesity trials?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "obesity"
+        },
+        "group_by": "sponsor_class",
+        "assumptions": []
+      },
+      "dimension": "sponsor_class",
+      "matched": {
+        "None": 13543
+      },
+      "downloaded": {
+        "None": 10000
+      },
+      "exact_count_requests": 7,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Other",
+          "app": 11055,
+          "recount": 11055,
+          "class": "api_exact",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Industry",
+          "app": 1642,
+          "recount": 1642,
+          "class": "api_exact",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Other gov",
+          "app": 396,
+          "recount": 396,
+          "class": "api_exact",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Nih",
+          "app": 262,
+          "recount": 262,
+          "class": "api_exact",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Fed",
+          "app": 155,
+          "recount": 155,
+          "class": "api_exact",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Network",
+          "app": 20,
+          "recount": 20,
+          "class": "api_exact",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Indiv",
+          "app": 13,
+          "recount": 13,
+          "class": "api_exact",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "ts_osimertinib_gefitinib",
+      "question": "Compare osimertinib and gefitinib trials over time",
+      "plan": {
+        "intent": "chart",
+        "chart": "time_series",
+        "filters": {},
+        "group_by": "start_year",
+        "compare": [
+          {
+            "label": "S1: osimertinib",
+            "filters": {
+              "drug": "osimertinib"
+            }
+          },
+          {
+            "label": "S2: gefitinib",
+            "filters": {
+              "drug": "gefitinib"
+            }
+          }
+        ],
+        "assumptions": []
+      },
+      "dimension": "start_year",
+      "matched": {
+        "S1: osimertinib": 302,
+        "S2: gefitinib": 349
+      },
+      "downloaded": {
+        "S1: osimertinib": 302,
+        "S2: gefitinib": 349
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": "S1: osimertinib",
+          "x": 1999,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 1999,
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2000,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2000,
+          "app": 4,
+          "recount": 4,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2001,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2001,
+          "app": 19,
+          "recount": 19,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2002,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2002,
+          "app": 26,
+          "recount": 26,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2003,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2003,
+          "app": 44,
+          "recount": 44,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2004,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2004,
+          "app": 51,
+          "recount": 51,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2005,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2005,
+          "app": 24,
+          "recount": 24,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2006,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2006,
+          "app": 9,
+          "recount": 9,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2007,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2007,
+          "app": 6,
+          "recount": 6,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2008,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2008,
+          "app": 5,
+          "recount": 5,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2009,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2009,
+          "app": 14,
+          "recount": 14,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2010,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2010,
+          "app": 4,
+          "recount": 4,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2011,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2011,
+          "app": 12,
+          "recount": 12,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2012,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2012,
+          "app": 15,
+          "recount": 15,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2013,
+          "app": 2,
+          "recount": 2,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2013,
+          "app": 10,
+          "recount": 10,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2014,
+          "app": 14,
+          "recount": 14,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2014,
+          "app": 15,
+          "recount": 15,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2015,
+          "app": 12,
+          "recount": 12,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2015,
+          "app": 11,
+          "recount": 11,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2016,
+          "app": 16,
+          "recount": 16,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2016,
+          "app": 23,
+          "recount": 23,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2017,
+          "app": 15,
+          "recount": 15,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2017,
+          "app": 10,
+          "recount": 10,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2018,
+          "app": 27,
+          "recount": 27,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2018,
+          "app": 14,
+          "recount": 14,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2019,
+          "app": 24,
+          "recount": 24,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2019,
+          "app": 9,
+          "recount": 9,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2020,
+          "app": 25,
+          "recount": 25,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2020,
+          "app": 10,
+          "recount": 10,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2021,
+          "app": 32,
+          "recount": 32,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2021,
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2022,
+          "app": 28,
+          "recount": 28,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2022,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2023,
+          "app": 21,
+          "recount": 21,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2023,
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2024,
+          "app": 37,
+          "recount": 37,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2024,
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2025,
+          "app": 21,
+          "recount": 21,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2025,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: osimertinib",
+          "x": 2026,
+          "app": 26,
+          "recount": 26,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: gefitinib",
+          "x": 2026,
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_studytype_longcovid",
+      "question": "How many interventional vs observational studies are there for long COVID?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "long covid"
+        },
+        "group_by": "study_type",
+        "assumptions": []
+      },
+      "dimension": "study_type",
+      "matched": {
+        "None": 608
+      },
+      "downloaded": {
+        "None": 608
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Interventional",
+          "app": 429,
+          "recount": 429,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Observational",
+          "app": 177,
+          "recount": 177,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Expanded access",
+          "app": 2,
+          "recount": 2,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_ivtype_depression",
+      "question": "What types of interventions are used in depression trials?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "depression"
+        },
+        "group_by": "intervention_type",
+        "assumptions": []
+      },
+      "dimension": "intervention_type",
+      "matched": {
+        "None": 12095
+      },
+      "downloaded": {
+        "None": 10000
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Behavioral",
+          "app": 4186,
+          "recount": 4797,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Other",
+          "app": 2266,
+          "recount": 2481,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Drug",
+          "app": 2010,
+          "recount": 3034,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Device",
+          "app": 1367,
+          "recount": 1481,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Dietary supplement",
+          "app": 208,
+          "recount": 238,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Procedure",
+          "app": 188,
+          "recount": 301,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Diagnostic test",
+          "app": 155,
+          "recount": 158,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Biological",
+          "app": 60,
+          "recount": 62,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Combination product",
+          "app": 46,
+          "recount": 46,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Genetic",
+          "app": 23,
+          "recount": 27,
+          "class": "sample",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Radiation",
+          "app": 20,
+          "recount": 27,
+          "class": "sample",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "grouped_sepsis_terminated_completed",
+      "question": "For sepsis trials, compare the phases of terminated versus completed trials",
+      "plan": {
+        "intent": "chart",
+        "chart": "grouped_bar_chart",
+        "filters": {},
+        "group_by": "phase",
+        "compare": [
+          {
+            "label": "S1: sepsis, TERMINATED",
+            "filters": {
+              "condition": "sepsis",
+              "statuses": [
+                "TERMINATED"
+              ]
+            }
+          },
+          {
+            "label": "S2: sepsis, COMPLETED",
+            "filters": {
+              "condition": "sepsis",
+              "statuses": [
+                "COMPLETED"
+              ]
+            }
+          }
+        ],
+        "assumptions": []
+      },
+      "dimension": "phase",
+      "matched": {
+        "S1: sepsis, TERMINATED": 136,
+        "S2: sepsis, COMPLETED": 1398
+      },
+      "downloaded": {
+        "S1: sepsis, TERMINATED": 136,
+        "S2: sepsis, COMPLETED": 1398
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": "S2: sepsis, COMPLETED",
+          "x": "N/A",
+          "app": 1012,
+          "recount": 1012,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: sepsis, COMPLETED",
+          "x": "Phase 3",
+          "app": 112,
+          "recount": 112,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: sepsis, COMPLETED",
+          "x": "Phase 4",
+          "app": 89,
+          "recount": 89,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: sepsis, COMPLETED",
+          "x": "Phase 2",
+          "app": 85,
+          "recount": 85,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: sepsis, COMPLETED",
+          "x": "Phase 1",
+          "app": 53,
+          "recount": 53,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: sepsis, COMPLETED",
+          "x": "Phase 2/3",
+          "app": 23,
+          "recount": 23,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: sepsis, COMPLETED",
+          "x": "Phase 1/2",
+          "app": 21,
+          "recount": 21,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: sepsis, COMPLETED",
+          "x": "Early Phase 1",
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: sepsis, TERMINATED",
+          "x": "N/A",
+          "app": 69,
+          "recount": 69,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: sepsis, TERMINATED",
+          "x": "Phase 3",
+          "app": 19,
+          "recount": 19,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: sepsis, TERMINATED",
+          "x": "Phase 4",
+          "app": 16,
+          "recount": 16,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: sepsis, TERMINATED",
+          "x": "Phase 2",
+          "app": 14,
+          "recount": 14,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: sepsis, TERMINATED",
+          "x": "Phase 1",
+          "app": 7,
+          "recount": 7,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: sepsis, TERMINATED",
+          "x": "Phase 2/3",
+          "app": 7,
+          "recount": 7,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: sepsis, TERMINATED",
+          "x": "Phase 1/2",
+          "app": 4,
+          "recount": 4,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: sepsis, TERMINATED",
+          "x": "Early Phase 1",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "ts_crohns_2005_2020",
+      "question": "Trends in Crohn's disease trial starts between 2005 and 2020",
+      "plan": {
+        "intent": "chart",
+        "chart": "time_series",
+        "filters": {
+          "condition": "crohn's disease",
+          "start_year_min": 2005,
+          "start_year_max": 2020
+        },
+        "group_by": "start_year",
+        "assumptions": []
+      },
+      "dimension": "start_year",
+      "matched": {
+        "None": 1172
+      },
+      "downloaded": {
+        "None": 1172
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": 2005,
+          "app": 34,
+          "recount": 34,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2006,
+          "app": 45,
+          "recount": 45,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2007,
+          "app": 46,
+          "recount": 46,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2008,
+          "app": 45,
+          "recount": 45,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2009,
+          "app": 43,
+          "recount": 43,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2010,
+          "app": 59,
+          "recount": 59,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2011,
+          "app": 73,
+          "recount": 73,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2012,
+          "app": 74,
+          "recount": 74,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2013,
+          "app": 71,
+          "recount": 71,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2014,
+          "app": 88,
+          "recount": 88,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2015,
+          "app": 102,
+          "recount": 102,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2016,
+          "app": 83,
+          "recount": 83,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2017,
+          "app": 99,
+          "recount": 99,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2018,
+          "app": 99,
+          "recount": 99,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2019,
+          "app": 105,
+          "recount": 105,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2020,
+          "app": 106,
+          "recount": 106,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "top10_drugs_ra",
+      "question": "Top 10 drugs studied in rheumatoid arthritis trials",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "rheumatoid arthritis"
+        },
+        "group_by": "intervention",
+        "sort": "value_desc",
+        "limit": 10,
+        "assumptions": []
+      },
+      "dimension": "intervention",
+      "matched": {
+        "None": 3418
+      },
+      "downloaded": {
+        "None": 3418
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Methotrexate",
+          "app": 294,
+          "recount": 306,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 19,
+          "only_in_recount": 31,
+          "examples_only_in_app": {
+            "NCT00202852": {
+              "interventions": [
+                {
+                  "type": "OTHER",
+                  "name": "Placebo"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "MTX"
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "Infliximab",
+                  "otherNames": [
+                    "Remicade",
+                    "SCH 215596"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "MTX"
+                }
+              ]
+            },
+            "NCT00144521": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "MRA(Tocilizumab)"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "MRA placebo"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "MTX"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "MTX placebo"
+                }
+              ]
+            }
+          },
+          "examples_only_in_recount": {
+            "NCT00095147": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Abatacept (ABA) + Methotrexate (MTX), double-blind (DB)",
+                  "otherNames": [
+                    "Orencia"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Infliximab (INF) + MTX, DB"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Placebo (PLA) + MTX, DB"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "PLA + MTX switched to ABA+ MTX, DB",
+                  "otherNames": [
+                    "Orencia"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "ABA, open-label (OL)",
+                  "otherNames": [
+                    "Orencia"
+                  ]
+                }
+              ]
+            },
+            "NCT00264537": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Placebo injections"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Placebo capsules"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Methotrexate capsules"
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "Golimumab 50 mg injections"
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "Golimumab 100 mg injections"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Tocilizumab",
+          "app": 156,
+          "recount": 172,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 16,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT01194414": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "tocilizumab SC",
+                  "otherNames": [
+                    "RoActemra/Actemra"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "tocilizumab IV",
+                  "otherNames": [
+                    "RoActemra/Actemra"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "placebo to tocilizumab SC"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "placebo to tocilizumab IV"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Disease-modifying antirheumatic drugs (DMARDs)"
+                }
+              ]
+            },
+            "NCT01000441": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "infliximab, etanercept, adalimumab"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "abatacept, rituximab or tocilizumab"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Adalimumab",
+          "app": 124,
+          "recount": 171,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 47,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT01000441": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "infliximab, etanercept, adalimumab"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "abatacept, rituximab or tocilizumab"
+                }
+              ]
+            },
+            "NCT00853385": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "CP 690,550"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "OTHER",
+                  "name": "Placebo"
+                },
+                {
+                  "type": "OTHER",
+                  "name": "Placebo"
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "Biologic TNFi",
+                  "otherNames": [
+                    "Humira (Adalimumab)"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Etanercept",
+          "app": 87,
+          "recount": 153,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 66,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00001862": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Enbrel"
+                }
+              ]
+            },
+            "NCT00078793": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Enbrel\u00ae"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Rituximab",
+          "app": 80,
+          "recount": 92,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 12,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT01000441": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "infliximab, etanercept, adalimumab"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "abatacept, rituximab or tocilizumab"
+                }
+              ]
+            },
+            "NCT01123070": {
+              "interventions": [
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "TL011, anti CD20, for the treatment of rheumatoid arthritis"
+                },
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "MabThera infusions"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Abatacept",
+          "app": 75,
+          "recount": 97,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 22,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00048932": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Double-blind Abatacept",
+                  "otherNames": [
+                    "Orencia",
+                    "BMS-188667"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Double-blind Placebo"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Open-label Abatacept",
+                  "otherNames": [
+                    "Orencia",
+                    "BMS-188667"
+                  ]
+                }
+              ]
+            },
+            "NCT00559585": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Subcutaneous (SC) Abatacept",
+                  "otherNames": [
+                    "Orencia",
+                    "BMS-188667"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Intravenous (IV) Abatacept",
+                  "otherNames": [
+                    "Orencia",
+                    "BMS-188667"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Infliximab",
+          "app": 56,
+          "recount": 94,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 38,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00317538": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "infliximab, etanercept"
+                }
+              ]
+            },
+            "NCT00213564": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "response to infliximab associated with methotrexate"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Certolizumab pegol",
+          "app": 44,
+          "recount": 72,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 28,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT01147341": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Cimzia",
+                  "otherNames": [
+                    "1 ml liquid product containing 200mg of Certolizumab Pegol"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Placebo",
+                  "otherNames": [
+                    "1 ml Sodium Cloride 0.9%"
+                  ]
+                }
+              ]
+            },
+            "NCT01098201": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Certolizumab",
+                  "otherNames": [
+                    "Cizmia"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Tofacitinib",
+          "app": 41,
+          "recount": 77,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 36,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00413660": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "OTHER",
+                  "name": "placebo"
+                }
+              ]
+            },
+            "NCT00147498": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "CP-690,550"
+                },
+                {
+                  "type": "OTHER",
+                  "name": "Placebo"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Leflunomide",
+          "app": 28,
+          "recount": 33,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 5,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00521924": {
+              "interventions": [
+                {
+                  "type": "BIOLOGICAL",
+                  "name": "infliximab",
+                  "otherNames": [
+                    "Basic treatment for RA (DMARDs)"
+                  ]
+                },
+                {
+                  "type": "DRUG",
+                  "name": "DMARDs (methotrexate; chloroquine; leflunomidum; cyclosporin A; sulfasalazine; OM 89."
+                }
+              ]
+            },
+            "NCT00422227": {
+              "interventions": [
+                {
+                  "type": "DRUG",
+                  "name": "Etanercept , Methotrexate"
+                },
+                {
+                  "type": "DRUG",
+                  "name": "Methotrexate; sulfasalazine; hydroxychloroquine;leflunomide"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "bar_phase_migraine",
+      "question": "What fraction of migraine trials are in each phase?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "migraine"
+        },
+        "group_by": "phase",
+        "assumptions": []
+      },
+      "dimension": "phase",
+      "matched": {
+        "None": 1800
+      },
+      "downloaded": {
+        "None": 1800
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "N/A",
+          "app": 1030,
+          "recount": 1030,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 3",
+          "app": 273,
+          "recount": 273,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 4",
+          "app": 189,
+          "recount": 189,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 2",
+          "app": 164,
+          "recount": 164,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 1",
+          "app": 93,
+          "recount": 93,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 2/3",
+          "app": 25,
+          "recount": 25,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 1/2",
+          "app": 14,
+          "recount": 14,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Early Phase 1",
+          "app": 12,
+          "recount": 12,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "grouped_status_moderna_biontech",
+      "question": "Compare trial counts by status for Moderna and BioNTech",
+      "plan": {
+        "intent": "chart",
+        "chart": "grouped_bar_chart",
+        "filters": {},
+        "group_by": "status",
+        "compare": [
+          {
+            "label": "S1: moderna",
+            "filters": {
+              "sponsor": "moderna"
+            }
+          },
+          {
+            "label": "S2: biontech",
+            "filters": {
+              "sponsor": "biontech"
+            }
+          }
+        ],
+        "assumptions": []
+      },
+      "dimension": "status",
+      "matched": {
+        "S1: moderna": 1,
+        "S2: biontech": 124
+      },
+      "downloaded": {
+        "S1: moderna": 1,
+        "S2: biontech": 124
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": "S2: biontech",
+          "x": "Completed",
+          "app": 48,
+          "recount": 48,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: biontech",
+          "x": "Recruiting",
+          "app": 35,
+          "recount": 35,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: biontech",
+          "x": "Active not recruiting",
+          "app": 18,
+          "recount": 18,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: biontech",
+          "x": "Terminated",
+          "app": 17,
+          "recount": 17,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: biontech",
+          "x": "Not yet recruiting",
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: biontech",
+          "x": "Withdrawn",
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: moderna",
+          "x": "Completed",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: moderna",
+          "x": "Recruiting",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: moderna",
+          "x": "Active not recruiting",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: moderna",
+          "x": "Terminated",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: moderna",
+          "x": "Not yet recruiting",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: moderna",
+          "x": "Withdrawn",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_sponsor_kenya_malaria",
+      "question": "Which sponsors run malaria trials in Kenya?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "malaria",
+          "country": "kenya"
+        },
+        "group_by": "lead_sponsor",
+        "assumptions": []
+      },
+      "dimension": "lead_sponsor",
+      "matched": {
+        "None": 117
+      },
+      "downloaded": {
+        "None": 117
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Liverpool School of Tropical Medicine",
+          "app": 13,
+          "recount": 13,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "GlaxoSmithKline",
+          "app": 11,
+          "recount": 11,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Centers for Disease Control and Prevention",
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Duke University",
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Novartis Pharmaceuticals",
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "University of Oxford",
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "London School of Hygiene and Tropical Medicine",
+          "app": 7,
+          "recount": 7,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Sanofi",
+          "app": 5,
+          "recount": 5,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "U.S. Army Medical Research and Development Command",
+          "app": 5,
+          "recount": 5,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "National Institute of Allergy and Infectious Diseases (NIAID)",
+          "app": 4,
+          "recount": 4,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "University of Washington",
+          "app": 4,
+          "recount": 4,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "KEMRI-Wellcome Trust Collaborative Research Program",
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Medicines for Malaria Venture",
+          "app": 2,
+          "recount": 2,
+          "class": "complete",
+          "kind": "text"
+        },
+        {
+          "series": null,
+          "x": "Novartis",
+          "app": 2,
+          "recount": 10,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 8,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT04675931": {
+              "leadSponsor": {
+                "name": "Novartis Pharmaceuticals"
+              }
+            },
+            "NCT03167242": {
+              "leadSponsor": {
+                "name": "Novartis Pharmaceuticals"
+              }
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "PATH",
+          "app": 2,
+          "recount": 2,
+          "class": "complete",
+          "kind": "text"
+        }
+      ]
+    },
+    {
+      "id": "field_ts_ozempic",
+      "question": "How has this changed over time?",
+      "plan": {
+        "intent": "chart",
+        "chart": "time_series",
+        "filters": {
+          "drug": "ozempic"
+        },
+        "group_by": "start_year",
+        "assumptions": []
+      },
+      "dimension": "start_year",
+      "matched": {
+        "None": 79
+      },
+      "downloaded": {
+        "None": 79
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": 2018,
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2019,
+          "app": 4,
+          "recount": 4,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2020,
+          "app": 4,
+          "recount": 4,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2021,
+          "app": 9,
+          "recount": 9,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2022,
+          "app": 13,
+          "recount": 13,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2023,
+          "app": 13,
+          "recount": 13,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2024,
+          "app": 14,
+          "recount": 14,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2025,
+          "app": 11,
+          "recount": 11,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2026,
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "field_phase_parkinsons",
+      "question": "Show the phase distribution",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "parkinson's disease",
+          "phases": [
+            "PHASE2",
+            "PHASE3"
+          ]
+        },
+        "group_by": "phase",
+        "assumptions": []
+      },
+      "dimension": "phase",
+      "matched": {
+        "None": 483
+      },
+      "downloaded": {
+        "None": 483
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Phase 2",
+          "app": 245,
+          "recount": 245,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 3",
+          "app": 174,
+          "recount": 174,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 1/2",
+          "app": 44,
+          "recount": 44,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 2/3",
+          "app": 20,
+          "recount": 20,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "field_ipilimumab_us_de",
+      "question": "Compare the trial statuses of this drug in the United States and Germany",
+      "plan": {
+        "intent": "chart",
+        "chart": "grouped_bar_chart",
+        "filters": {},
+        "group_by": "status",
+        "compare": [
+          {
+            "label": "S1: ipilimumab, united states",
+            "filters": {
+              "drug": "ipilimumab",
+              "country": "united states"
+            }
+          },
+          {
+            "label": "S2: ipilimumab, germany",
+            "filters": {
+              "drug": "ipilimumab",
+              "country": "germany"
+            }
+          }
+        ],
+        "assumptions": []
+      },
+      "dimension": "status",
+      "matched": {
+        "S1: ipilimumab, united states": 605,
+        "S2: ipilimumab, germany": 98
+      },
+      "downloaded": {
+        "S1: ipilimumab, united states": 605,
+        "S2: ipilimumab, germany": 98
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": "S1: ipilimumab, united states",
+          "x": "Completed",
+          "app": 283,
+          "recount": 283,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: ipilimumab, united states",
+          "x": "Active not recruiting",
+          "app": 107,
+          "recount": 107,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: ipilimumab, united states",
+          "x": "Terminated",
+          "app": 100,
+          "recount": 100,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: ipilimumab, united states",
+          "x": "Recruiting",
+          "app": 69,
+          "recount": 69,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: ipilimumab, united states",
+          "x": "Withdrawn",
+          "app": 21,
+          "recount": 21,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: ipilimumab, united states",
+          "x": "Not yet recruiting",
+          "app": 6,
+          "recount": 6,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: ipilimumab, united states",
+          "x": "Suspended",
+          "app": 6,
+          "recount": 6,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: ipilimumab, united states",
+          "x": "Enrolling by invitation",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: ipilimumab, united states",
+          "x": "No longer available",
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: ipilimumab, germany",
+          "x": "Completed",
+          "app": 66,
+          "recount": 66,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: ipilimumab, germany",
+          "x": "Terminated",
+          "app": 12,
+          "recount": 12,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: ipilimumab, germany",
+          "x": "Recruiting",
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: ipilimumab, germany",
+          "x": "Active not recruiting",
+          "app": 7,
+          "recount": 7,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: ipilimumab, germany",
+          "x": "Withdrawn",
+          "app": 2,
+          "recount": 2,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: ipilimumab, germany",
+          "x": "Not yet recruiting",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: ipilimumab, germany",
+          "x": "Suspended",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: ipilimumab, germany",
+          "x": "Enrolling by invitation",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: ipilimumab, germany",
+          "x": "No longer available",
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "field_conflict_semaglutide",
+      "question": "Compare semaglutide and tirzepatide trials over time",
+      "plan": {
+        "intent": "chart",
+        "chart": "time_series",
+        "filters": {
+          "drug": "semaglutide"
+        },
+        "group_by": "start_year",
+        "assumptions": []
+      },
+      "dimension": "start_year",
+      "matched": {
+        "None": 650
+      },
+      "downloaded": {
+        "None": 650
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": 2007,
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2008,
+          "app": 1,
+          "recount": 1,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2009,
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2010,
+          "app": 0,
+          "recount": 0,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2011,
+          "app": 2,
+          "recount": 2,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2012,
+          "app": 4,
+          "recount": 4,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2013,
+          "app": 8,
+          "recount": 8,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2014,
+          "app": 19,
+          "recount": 19,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2015,
+          "app": 3,
+          "recount": 3,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2016,
+          "app": 12,
+          "recount": 12,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2017,
+          "app": 11,
+          "recount": 11,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2018,
+          "app": 20,
+          "recount": 20,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2019,
+          "app": 40,
+          "recount": 40,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2020,
+          "app": 22,
+          "recount": 22,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2021,
+          "app": 45,
+          "recount": 45,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2022,
+          "app": 62,
+          "recount": 62,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2023,
+          "app": 74,
+          "recount": 74,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2024,
+          "app": 91,
+          "recount": 91,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2025,
+          "app": 94,
+          "recount": 94,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": 2026,
+          "app": 125,
+          "recount": 125,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_phase_lungcancer_2024",
+      "question": "How many lung cancer trials started in 2024, by phase?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "lung cancer",
+          "start_year_min": 2024,
+          "start_year_max": 2024
+        },
+        "group_by": "phase",
+        "assumptions": []
+      },
+      "dimension": "phase",
+      "matched": {
+        "None": 835
+      },
+      "downloaded": {
+        "None": 835
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "N/A",
+          "app": 364,
+          "recount": 364,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 2",
+          "app": 193,
+          "recount": 193,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 1",
+          "app": 120,
+          "recount": 120,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 3",
+          "app": 69,
+          "recount": 69,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 1/2",
+          "app": 60,
+          "recount": 60,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Early Phase 1",
+          "app": 11,
+          "recount": 11,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 4",
+          "app": 11,
+          "recount": 11,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Phase 2/3",
+          "app": 7,
+          "recount": 7,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_sponsorclass_breast_active",
+      "question": "Show active, not recruiting breast cancer trials by sponsor type",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "condition": "breast cancer",
+          "statuses": [
+            "ACTIVE_NOT_RECRUITING"
+          ]
+        },
+        "group_by": "sponsor_class",
+        "assumptions": []
+      },
+      "dimension": "sponsor_class",
+      "matched": {
+        "None": 1158
+      },
+      "downloaded": {
+        "None": 1158
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Other",
+          "app": 819,
+          "recount": 819,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Industry",
+          "app": 253,
+          "recount": 253,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Network",
+          "app": 33,
+          "recount": 33,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Nih",
+          "app": 30,
+          "recount": 30,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": null,
+          "x": "Other gov",
+          "app": 23,
+          "recount": 23,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    },
+    {
+      "id": "bar_conditions_aspirin",
+      "question": "Which conditions are most studied with aspirin?",
+      "plan": {
+        "intent": "chart",
+        "chart": "bar_chart",
+        "filters": {
+          "drug": "aspirin"
+        },
+        "group_by": "condition",
+        "sort": "value_desc",
+        "assumptions": []
+      },
+      "dimension": "condition",
+      "matched": {
+        "None": 1316
+      },
+      "downloaded": {
+        "None": 1316
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": null,
+          "x": "Coronary Artery Disease",
+          "app": 107,
+          "recount": 180,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 73,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00000479": {
+              "conditions": [
+                "Cardiovascular Diseases",
+                "Cerebrovascular Disorders",
+                "Coronary Disease",
+                "Heart Diseases",
+                "Myocardial Infarction",
+                "Myocardial Ischemia",
+                "Vascular Diseases"
+              ]
+            },
+            "NCT00000491": {
+              "conditions": [
+                "Cardiovascular Diseases",
+                "Coronary Disease",
+                "Heart Diseases",
+                "Myocardial Infarction",
+                "Myocardial Ischemia"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Stroke",
+          "app": 57,
+          "recount": 173,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 116,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00061373": {
+              "conditions": [
+                "Ischemic Stroke"
+              ]
+            },
+            "NCT00059306": {
+              "conditions": [
+                "Cerebrovascular Accident",
+                "Hypertension"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Ischemic Stroke",
+          "app": 43,
+          "recount": 96,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 53,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00417898": {
+              "conditions": [
+                "Acute Ischemic Stroke"
+              ]
+            },
+            "NCT00859885": {
+              "conditions": [
+                "Stroke",
+                "Transient Ischemic Attack"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Acute Coronary Syndrome",
+          "app": 41,
+          "recount": 60,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 19,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00404781": {
+              "conditions": [
+                "Ischemic Heart Disease",
+                "Acute Coronary Syndromes"
+              ]
+            },
+            "NCT00501345": {
+              "conditions": [
+                "Thrombocytopenia",
+                "Myocardial Infarction"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Cardiovascular Diseases",
+          "app": 38,
+          "recount": 78,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 40,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00122447": {
+              "conditions": [
+                "Impaired Glucose Tolerance",
+                "Prediabetic State"
+              ]
+            },
+            "NCT00135226": {
+              "conditions": [
+                "Diabetes Mellitus"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Healthy",
+          "app": 34,
+          "recount": 57,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 23,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00368238": {
+              "conditions": [
+                "Healthy Subjects"
+              ]
+            },
+            "NCT00152724": {
+              "conditions": [
+                "Healthy Volunteers"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Preeclampsia",
+          "app": 34,
+          "recount": 66,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 32,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT01352234": {
+              "conditions": [
+                "Pre-Eclampsia",
+                "Fetal Growth Retardation",
+                "Premature Birth",
+                "Placental Insufficiency"
+              ]
+            },
+            "NCT00959621": {
+              "conditions": [
+                "Habitual Abortion"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Atrial Fibrillation",
+          "app": 28,
+          "recount": 37,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 9,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00041938": {
+              "conditions": [
+                "Heart Disease",
+                "Stroke",
+                "Ischemic Heart Disease",
+                "Myocardial Infarction"
+              ]
+            },
+            "NCT00623779": {
+              "conditions": [
+                "Persistent or Permanent Non-valvular Atrial Fibrillation"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Myocardial Infarction",
+          "app": 27,
+          "recount": 76,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 49,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00642811": {
+              "conditions": [
+                "Stable Coronary Artery Disease"
+              ]
+            },
+            "NCT00528411": {
+              "conditions": [
+                "Coronary Artery Disease"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Aspirin",
+          "app": 26,
+          "recount": 47,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 21,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00466154": {
+              "conditions": [
+                "Aspirin Resistance",
+                "Hypercholesterolemia"
+              ]
+            },
+            "NCT00861367": {
+              "conditions": [
+                "Blood Loss, Surgical",
+                "Intraoperative Complications",
+                "Re-operation Rates in Patients With Aspirin Treatment"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Atherosclerosis",
+          "app": 24,
+          "recount": 46,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 22,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00531362": {
+              "conditions": [
+                "Cardiovascular Disease"
+              ]
+            },
+            "NCT00110448": {
+              "conditions": [
+                "Coronary Disease",
+                "Arteriosclerosis",
+                "Diabetes Mellitus, Type 2"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Colorectal Cancer",
+          "app": 23,
+          "recount": 26,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 3,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT02965703": {
+              "conditions": [
+                "Colorectal Adenoma",
+                "Colorectal Carcinoma"
+              ]
+            },
+            "NCT04534218": {
+              "conditions": [
+                "Colo-rectal Cancer",
+                "Metastatic Cancer"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Peripheral Arterial Disease",
+          "app": 21,
+          "recount": 43,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 22,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00557921": {
+              "conditions": [
+                "Acute Coronary Syndrome",
+                "Myocardial Infarction",
+                "Coronary Artery Disease",
+                "Percutaneous Coronary Intervention"
+              ]
+            },
+            "NCT00797056": {
+              "conditions": [
+                "Peripheral Vascular Diseases"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Thrombosis",
+          "app": 21,
+          "recount": 71,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 50,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT00222677": {
+              "conditions": [
+                "Venous Thromboembolism",
+                "Deep Venous Thrombosis",
+                "Pulmonary Embolism",
+                "Atherosclerosis"
+              ]
+            },
+            "NCT00175838": {
+              "conditions": [
+                "Thrombocythemia",
+                "Myeloproliferative Disorder"
+              ]
+            }
+          }
+        },
+        {
+          "series": null,
+          "x": "Acute Ischemic Stroke",
+          "app": 19,
+          "recount": 21,
+          "class": "complete",
+          "kind": "text",
+          "only_in_app": 0,
+          "only_in_recount": 2,
+          "examples_only_in_app": {},
+          "examples_only_in_recount": {
+            "NCT03719820": {
+              "conditions": [
+                "Acute Ischemic Stroke AIS",
+                "Intracranial Atherosclerosis ICAS"
+              ]
+            },
+            "NCT01763606": {
+              "conditions": [
+                "Cancer Patients First-ever Acute Ischemic Stroke"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "ts_three_sponsors_phase3",
+      "question": "Compare how many phase 3 trials Pfizer, Novartis and Roche started each year since 2015",
+      "plan": {
+        "intent": "chart",
+        "chart": "time_series",
+        "filters": {},
+        "group_by": "start_year",
+        "compare": [
+          {
+            "label": "S1: pfizer, PHASE3, 2015",
+            "filters": {
+              "sponsor": "pfizer",
+              "phases": [
+                "PHASE3"
+              ],
+              "start_year_min": 2015
+            }
+          },
+          {
+            "label": "S2: novartis, PHASE3, 2015",
+            "filters": {
+              "sponsor": "novartis",
+              "phases": [
+                "PHASE3"
+              ],
+              "start_year_min": 2015
+            }
+          },
+          {
+            "label": "S3: roche, PHASE3, 2015",
+            "filters": {
+              "sponsor": "roche",
+              "phases": [
+                "PHASE3"
+              ],
+              "start_year_min": 2015
+            }
+          }
+        ],
+        "assumptions": []
+      },
+      "dimension": "start_year",
+      "matched": {
+        "S1: pfizer, PHASE3, 2015": 305,
+        "S2: novartis, PHASE3, 2015": 332,
+        "S3: roche, PHASE3, 2015": 283
+      },
+      "downloaded": {
+        "S1: pfizer, PHASE3, 2015": 305,
+        "S2: novartis, PHASE3, 2015": 332,
+        "S3: roche, PHASE3, 2015": 283
+      },
+      "exact_count_requests": 0,
+      "warnings": [],
+      "bars": [
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2015,
+          "app": 19,
+          "recount": 19,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2015,
+          "app": 34,
+          "recount": 34,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2015,
+          "app": 29,
+          "recount": 29,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2016,
+          "app": 25,
+          "recount": 25,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2016,
+          "app": 25,
+          "recount": 25,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2016,
+          "app": 18,
+          "recount": 18,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2017,
+          "app": 19,
+          "recount": 19,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2017,
+          "app": 25,
+          "recount": 25,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2017,
+          "app": 27,
+          "recount": 27,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2018,
+          "app": 26,
+          "recount": 26,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2018,
+          "app": 28,
+          "recount": 28,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2018,
+          "app": 31,
+          "recount": 31,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2019,
+          "app": 17,
+          "recount": 17,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2019,
+          "app": 37,
+          "recount": 37,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2019,
+          "app": 19,
+          "recount": 19,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2020,
+          "app": 38,
+          "recount": 38,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2020,
+          "app": 27,
+          "recount": 27,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2020,
+          "app": 35,
+          "recount": 35,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2021,
+          "app": 34,
+          "recount": 34,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2021,
+          "app": 48,
+          "recount": 48,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2021,
+          "app": 37,
+          "recount": 37,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2022,
+          "app": 31,
+          "recount": 31,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2022,
+          "app": 22,
+          "recount": 22,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2022,
+          "app": 16,
+          "recount": 16,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2023,
+          "app": 16,
+          "recount": 16,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2023,
+          "app": 32,
+          "recount": 32,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2023,
+          "app": 25,
+          "recount": 25,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2024,
+          "app": 11,
+          "recount": 11,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2024,
+          "app": 17,
+          "recount": 17,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2024,
+          "app": 12,
+          "recount": 12,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2025,
+          "app": 30,
+          "recount": 30,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2025,
+          "app": 20,
+          "recount": 20,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2025,
+          "app": 14,
+          "recount": 14,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S1: pfizer, PHASE3, 2015",
+          "x": 2026,
+          "app": 38,
+          "recount": 38,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S2: novartis, PHASE3, 2015",
+          "x": 2026,
+          "app": 16,
+          "recount": 16,
+          "class": "complete",
+          "kind": "registry"
+        },
+        {
+          "series": "S3: roche, PHASE3, 2015",
+          "x": 2026,
+          "app": 20,
+          "recount": 20,
+          "class": "complete",
+          "kind": "registry"
+        }
+      ]
+    }
+  ],
+  "summary": "## Chart numbers\n\n27 charts, 382 bars/points recounted.\n\n- **complete / registry** (290 bars): exactly equal 100% (290/290, 95% CI 99-100%); within 5% 100% (290/290, 95% CI 99-100%); total abs error 0.0% of 23,898 trials (app undercounts by 0 net); median bar error 0.0%\n- **complete / text** (74 bars): exactly equal 43% (32/74, 95% CI 33-55%); within 5% 45% (33/74, 95% CI 34-56%); total abs error 20.9% of 11,845 trials (app undercounts by 2,476 net); median bar error 12.9%\n- **api_exact / registry** (7 bars): exactly equal 100% (7/7, 95% CI 65-100%); within 5% 100% (7/7, 95% CI 65-100%); total abs error 0.0% of 13,543 trials (app undercounts by 0 net); median bar error 0.0%\n- **sample / registry** (11 bars): exactly equal 9% (1/11, 95% CI 2-38%); within 5% 27% (3/11, 95% CI 10-57%); total abs error 16.8% of 12,652 trials (app undercounts by 2,123 net); median bar error 12.6%\n\nBy dimension (complete downloads only):\n\n- condition (15 bars): exactly equal 0% (0/15, 95% CI 0-20%); within 5% 0% (0/15, 95% CI 0-20%); total abs error 49.6% of 1,077 trials (app undercounts by 534 net); median bar error 47.8%\n- country (14 bars): exactly equal 100% (14/14, 95% CI 78-100%); within 5% 100% (14/14, 95% CI 78-100%); total abs error 0.0% of 2,882 trials (app undercounts by 0 net); median bar error 0.0%\n- enrollment (9 bars): exactly equal 100% (9/9, 95% CI 70-100%); within 5% 100% (9/9, 95% CI 70-100%); total abs error 0.0% of 2,137 trials (app undercounts by 0 net); median bar error 0.0%\n- intervention (25 bars): exactly equal 0% (0/25, 95% CI 0-13%); within 5% 4% (1/25, 95% CI 1-20%); total abs error 26.0% of 7,302 trials (app undercounts by 1,895 net); median bar error 20.6%\n- lead_sponsor (20 bars): exactly equal 90% (18/20, 95% CI 70-97%); within 5% 90% (18/20, 95% CI 70-97%); total abs error 8.0% of 584 trials (app undercounts by 47 net); median bar error 0.0%\n- phase (60 bars): exactly equal 100% (60/60, 95% CI 94-100%); within 5% 100% (60/60, 95% CI 94-100%); total abs error 0.0% of 14,790 trials (app undercounts by 0 net); median bar error 0.0%\n- sponsor_class (5 bars): exactly equal 100% (5/5, 95% CI 57-100%); within 5% 100% (5/5, 95% CI 57-100%); total abs error 0.0% of 1,158 trials (app undercounts by 0 net); median bar error 0.0%\n- start_year (174 bars): exactly equal 100% (174/174, 95% CI 98-100%); within 5% 100% (174/174, 95% CI 98-100%); total abs error 0.0% of 4,315 trials (app undercounts by 0 net); median bar error 0.0%\n- status (39 bars): exactly equal 100% (39/39, 95% CI 91-100%); within 5% 100% (39/39, 95% CI 91-100%); total abs error 0.0% of 890 trials (app undercounts by 0 net); median bar error 0.0%\n- study_type (3 bars): exactly equal 100% (3/3, 95% CI 44-100%); within 5% 100% (3/3, 95% CI 44-100%); total abs error 0.0% of 608 trials (app undercounts by 0 net); median bar error 0.0%\n\nLargest gaps:\n\n- `bar_ivtype_depression` intervention_type='Drug' : app 2,010 vs recount 3,034 [sample]\n- `bar_ivtype_depression` intervention_type='Behavioral' : app 4,186 vs recount 4,797 [sample]\n- `combos_rituximab` intervention='Rituximab' : app 1,954 vs recount 2,262 [complete] (only in app 0, only in recount 308)\n- `combos_rituximab` intervention='Vincristine Sulfate' : app 99 vs recount 365 [complete] (only in app 0, only in recount 266)\n- `combos_rituximab` intervention='Doxorubicin Hydrochloride' : app 97 vs recount 347 [complete] (only in app 0, only in recount 250)\n- `bar_ivtype_depression` intervention_type='Other' : app 2,266 vs recount 2,481 [sample]\n- `combos_rituximab` intervention='Vincristine' : app 190 vs recount 365 [complete] (only in app 0, only in recount 175)\n- `combos_rituximab` intervention='Doxorubicin' : app 178 vs recount 347 [complete] (only in app 0, only in recount 169)\n- `bar_conditions_aspirin` condition='Stroke' : app 57 vs recount 173 [complete] (only in app 0, only in recount 116)\n- `bar_ivtype_depression` intervention_type='Device' : app 1,367 vs recount 1,481 [sample]\n- `bar_ivtype_depression` intervention_type='Procedure' : app 188 vs recount 301 [sample]\n- `combos_rituximab` intervention='Cyclophosphamide' : app 495 vs recount 607 [complete] (only in app 0, only in recount 112)\n- `bar_conditions_aspirin` condition='Coronary Artery Disease' : app 107 vs recount 180 [complete] (only in app 0, only in recount 73)\n- `combos_rituximab` intervention='Fludarabine' : app 131 vs recount 199 [complete] (only in app 0, only in recount 68)\n- `combos_rituximab` intervention='Prednisone' : app 294 vs recount 361 [complete] (only in app 0, only in recount 67)"
+}

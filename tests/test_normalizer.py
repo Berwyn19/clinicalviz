@@ -104,3 +104,72 @@ def test_synthetic_record(result):
 def test_messy_record_does_not_crash(result):
     t = by_id(result[0], "NCT09999902")
     assert t.phase == "NA" and t.start_year is None and t.enrollment is None
+
+# --- drug names: placebo, splitting, synonyms (review H1 / H2) --------------------------
+# Only general rules are tested here; synonyms are learned from the data, not from lists.
+
+from app.processing.normalizer import build_drug_aliases, normalize_intervention  # noqa: E402
+
+
+def iv(name, type_="DRUG", other_names=None):
+    return normalize_intervention({"name": name, "type": type_, "otherNames": other_names or []})
+
+
+@pytest.mark.parametrize("name, components", [
+    ("Pembrolizumab + Placebo", ["pembrolizumab"]),            # placebo removed, drug kept
+    ("Placebo and Pembrolizumab", ["pembrolizumab"]),
+    ("Placebo", []),
+    ("Pembrolizumab 200 mg + Lenvatinib 20 mg", ["pembrolizumab", "lenvatinib"]),   # split before dose cut
+    ("Cisplatin 75 mg/m2 on day 1", ["cisplatin"]),
+    ("Drug A and B", ["drug a and b"]),                           # 'B' is not a name: no split
+])
+def test_components(name, components):
+    assert iv(name).components == components
+
+
+def test_placebo_only_entry_is_not_drug_like():
+    assert not iv("Placebo").is_drug_like and iv("Pembrolizumab + Placebo").is_drug_like
+
+
+def test_other_names_and_parentheses_become_alias_keys():
+    assert iv("Pembrolizumab (MK-3475)", other_names=["Keytruda"]).alias_keys == ["keytruda", "mk 3475"]
+
+
+def _study(nct, interventions, mesh=()):
+    return {"protocolSection": {"identificationModule": {"nctId": nct, "briefTitle": "t"},
+                                "armsInterventionsModule": {"interventions": interventions}},
+            "derivedSection": {"interventionBrowseModule": {"meshes": [{"term": m} for m in mesh]}}}
+
+
+PEM = {"type": "DRUG", "name": "Pembrolizumab", "otherNames": ["Keytruda", "MK-3475", "Anti-PD-1"]}
+NIV = {"type": "DRUG", "name": "Nivolumab", "otherNames": ["Opdivo", "Anti-PD-1"]}
+
+
+def test_brand_and_code_names_merge_into_the_common_name():
+    studies = [_study(f"NCT{i}", [d]) for i, d in enumerate([PEM, PEM, PEM, NIV, NIV])]
+    studies += [_study("NCT8", [{"type": "DRUG", "name": "KEYTRUDA (pembrolizumab)"}]),
+                _study("NCT9", [{"type": "DRUG", "name": "MK-3475"}])]
+    trials, report = normalize_all(studies)
+    assert report.drug_aliases["keytruda"] == "pembrolizumab"
+    assert report.drug_aliases["mk 3475"] == "pembrolizumab"
+    assert "anti pd 1" not in report.drug_aliases            # shared by two drugs: never merged
+    assert trials[5].drug_keys == {"pembrolizumab"} and trials[6].drug_keys == {"pembrolizumab"}
+    assert trials[5].interventions[0].component_displays == ["Pembrolizumab"]
+
+
+def test_mesh_terms_link_an_unlisted_brand_by_elimination():
+    # 'Tecentriq' never has otherNames, but in each trial it is the only entry not matching a
+    # MeSH term, and 'atezolizumab' is the only MeSH term not matching an entry.
+    tec = {"type": "DRUG", "name": "Tecentriq"}
+    carbo = {"type": "DRUG", "name": "Carboplatin"}
+    studies = [_study(f"NCT{i}", [tec, carbo], mesh=["atezolizumab", "Carboplatin"]) for i in range(2)]
+    studies += [_study(f"NCT{i + 2}", [{"type": "DRUG", "name": "Atezolizumab"}]) for i in range(3)]
+    trials, report = normalize_all(studies)
+    assert report.drug_aliases["tecentriq"] == "atezolizumab"
+    assert trials[0].drug_keys == {"atezolizumab", "carboplatin"}
+
+
+def test_one_off_link_is_not_enough_to_merge():
+    trials = normalize_all([_study("N1", [{"type": "DRUG", "name": "Pembrolizumab", "otherNames": ["Lenvatinib"]}]),
+                            _study("N2", [{"type": "DRUG", "name": "Lenvatinib"}])])[0]
+    assert build_drug_aliases(trials) == {}

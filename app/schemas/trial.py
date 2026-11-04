@@ -13,8 +13,10 @@ class Intervention(BaseModel):
     other_names: list[str] = []
     key: str                      # grouping key, e.g. "pembrolizumab"
     display: str                  # cleaned name for labels, e.g. "Pembrolizumab"
-    is_drug_like: bool            # drug/biological and not a placebo
-    components: list[str] = []    # drug keys this entry stands for ("A and B" -> ["a", "b"])
+    is_drug_like: bool            # drug/biological with at least one non-placebo component
+    components: list[str] = []    # drug keys this entry stands for ("A and B" -> ["a", "b"]), placebos removed
+    component_displays: list[str] = []  # display name per component (same order as components)
+    alias_keys: list[str] = []    # keys of other names (otherNames + text in parentheses), for synonym merging
 
 
 class Site(BaseModel):
@@ -46,6 +48,7 @@ class Trial(BaseModel):
     conditions: list[str] = []
     interventions: list[Intervention] = []
     sites: list[Site] = []
+    drug_mesh_terms: list[str] = []   # derivedSection.interventionBrowseModule.meshes[].term (whole trial)
 
     @property
     def drug_keys(self) -> set[str]:

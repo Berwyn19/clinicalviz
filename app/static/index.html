@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trial Explorer</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <h1>Trial Explorer</h1>
+      <p class="lede">Ask a question about ClinicalTrials.gov. Every number is counted from registry records, and every bar links to the trials behind it.</p>
+    </header>
+
+    <form id="ask" class="ask" autocomplete="off">
+      <div class="ask-row">
+        <label class="visually-hidden" for="q">Question</label>
+        <input id="q" name="query" type="text" minlength="3" maxlength="500" required
+               placeholder="e.g. How has the number of pembrolizumab trials changed over time?">
+        <button id="go" type="submit">Ask</button>
+      </div>
+      <div id="examples" class="examples" aria-label="Example questions"></div>
+
+      <details class="filters">
+        <summary>Filters <span class="hint">(optional; these always override the question text)</span></summary>
+        <div class="filter-grid">
+          <label>Drug <input name="drug_name" type="text" maxlength="100"></label>
+          <label>Condition <input name="condition" type="text" maxlength="100"></label>
+          <label>Sponsor <input name="sponsor" type="text" maxlength="100"></label>
+          <label>Country <input name="country" type="text" maxlength="60" placeholder="United States"></label>
+          <label>Start year from <input name="start_year" type="number" min="1990" max="2100"></label>
+          <label>Start year to <input name="end_year" type="number" min="1990" max="2100"></label>
+          <label>Max trials to download <input name="max_trials" type="number" min="1" max="20000" value="10000"></label>
+        </div>
+        <fieldset><legend>Phase</legend><div id="phases" class="checks"></div></fieldset>
+        <fieldset><legend>Status</legend><div id="statuses" class="checks"></div></fieldset>
+      </details>
+    </form>
+
+    <p id="status" class="status" role="status" aria-live="polite"></p>
+
+    <section id="output" class="output" hidden>
+      <article class="card">
+        <header class="card-head">
+          <div>
+            <h2 id="title"></h2>
+            <p id="subtitle" class="subtitle"></p>
+          </div>
+          <button id="toggle-table" type="button" class="ghost">Show data table</button>
+        </header>
+        <div id="unsupported" class="unsupported" hidden></div>
+        <div id="chart" class="chart" role="img"></div>
+        <div id="table-view" class="table-wrap" hidden></div>
+        <ul id="notes" class="notes"></ul>
+      </article>
+
+      <aside class="card evidence" aria-labelledby="evidence-title">
+        <h3 id="evidence-title">Trials behind the numbers</h3>
+        <div id="evidence"><p class="muted">Click a bar, point or node to list its trials and the registry fields they were counted from.</p></div>
+      </aside>
+
+      <article class="card">
+        <h3>How the question was read</h3>
+        <dl id="plan-summary" class="plan-summary"></dl>
+        <ul id="assumptions" class="assumptions"></ul>
+        <details class="plan-json">
+          <summary>Edit the plan and re-run</summary>
+          <p class="muted">Change any field and re-run. This skips the language model and goes straight to ClinicalTrials.gov.</p>
+          <textarea id="plan-text" spellcheck="false" rows="14"></textarea>
+          <button id="rerun" type="button">Re-run with this plan</button>
+        </details>
+      </article>
+
+      <article class="card">
+        <h3>Sources</h3>
+        <ul id="sources" class="sources"></ul>
+      </article>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>

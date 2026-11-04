@@ -1,0 +1,208 @@
+{
+  "judge_model": "gpt-4.1",
+  "per_side": 10,
+  "terms": [
+    {
+      "kind": "drug",
+      "term": "semaglutide",
+      "strict": 650,
+      "excluded": 146,
+      "precision": 1.0,
+      "precision_ci": [
+        0.7224598312333834,
+        1.0
+      ],
+      "excluded_relevant_rate": 0.8888888888888888,
+      "recall": 0.8335708178968366,
+      "recall_ci": [
+        0.8165829145728644,
+        0.8697591436217662
+      ],
+      "est_relevant_found": 650.0,
+      "est_relevant_missed": 129.77777777777777,
+      "rows": [
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT06003153",
+          "title": "GLUCOSE-MGH: Genetic Links Understood Through Challenge With Oral Semaglutide Exposure at MGH",
+          "verdict": "yes",
+          "reason": "The protocol explicitly states that participants will receive 7 mg of oral semaglutide once daily for 14 days as part of the study intervention. The intervention section and the study arms both confirm administration of oral semaglutide to participants."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT04126603",
+          "title": "Impact of Semaglutide on CD34+ EPC and Fat Derived MSC",
+          "verdict": "yes",
+          "reason": "The trial includes an arm (Group B Active) where participants receive semaglutide as part of the protocol. The intervention section specifies dosing and duration for semaglutide, confirming it is administered to participants."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT03548987",
+          "title": "Research Study Investigating How Well Semaglutide Works in People Suffering From Overweight or Obesity",
+          "verdict": "yes",
+          "reason": "The trial protocol specifies that all participants receive semaglutide during the initial 20-week run-in period, and then are randomized to either continue semaglutide or switch to placebo. Semaglutide is explicitly given as part of the intervention in both arms."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT05230615",
+          "title": "A Research Study Looking at How Oral Semaglutide Works in People With Type 2 Diabetes in Italy, as Part of Local Clinical Practice",
+          "verdict": "yes",
+          "reason": "The study is an observational study specifically about people receiving oral semaglutide (Rybelsus\u00ae), as stated in the summary and interventions. Participants will get Rybelsus\u00ae as prescribed, and the study investigates its use in a real-world population."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT05087342",
+          "title": "Latino Semaglutide Study",
+          "verdict": "yes",
+          "reason": "The record clearly states that semaglutide 2.4mg is given to the intervention group as part of the protocol, with detailed dosing information provided. This is an interventional study where participants receive semaglutide as the study drug."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT03631186",
+          "title": "A Research Study Looking at How Semaglutide Works in People With Type 2 Diabetes in Switzerland, as Part of Local Clinical Practice (SURE SWITZERLAND)",
+          "verdict": "yes",
+          "reason": "The study is specifically about people receiving semaglutide as part of their diabetes treatment in real-world clinical practice. The intervention section and summary both state that participants will get semaglutide prescribed by the study doctor, and the study is collecting information on how semaglutide works in these patients."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT03989232",
+          "title": "A Research Study to Compare Two Doses of Semaglutide Taken Once Weekly in People With Type 2 Diabetes",
+          "verdict": "yes",
+          "reason": "The trial is an interventional study comparing two doses of semaglutide (1.0 mg and 2.0 mg) given once weekly to participants with type 2 diabetes. Both arms of the study involve administration of semaglutide as part of the protocol."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT04524832",
+          "title": "Research Study Comparing New Tablets of Semaglutide in New Doses, in Healthy People",
+          "verdict": "yes",
+          "reason": "The trial is an interventional study in which all arms involve participants receiving oral semaglutide in various formulations and dosages as part of the protocol. The intervention is explicitly listed as 'Oral semaglutide' and the arms detail administration of semaglutide tablets."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT07163624",
+          "title": "UBT251 Injection Phase II (Type 2 Diabetes Mellitus) Study",
+          "verdict": "yes",
+          "reason": "The trial includes an active comparator arm where participants receive Semaglutide Injection (Ozempic\u00ae) as part of the protocol. This is explicitly listed as an intervention and as an arm in the study."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "strict",
+          "nct_id": "NCT05129891",
+          "title": "A Research Study Looking at New Protein-based Tablets in Healthy Male Participants",
+          "verdict": "yes",
+          "reason": "The trial includes four different formulations of oral semaglutide (Semaglutide D, G, H, I) as interventions in Part A, and participants are assigned to receive these as part of the protocol. Therefore, semaglutide is given to participants in at least one arm."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT07740291",
+          "title": "Tirzepatide Impact Assessment Study",
+          "verdict": "yes",
+          "reason": "The trial includes an experimental arm where participants are prescribed semaglutide or tirzepatide for weight management by their primary medical provider. The intervention explicitly lists semaglutide as one of the drugs given to participants as part of the protocol."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT07213323",
+          "title": "Probiotic Intervention for Digestive Health in Obese Patients Initiating GLP-RA Treatment",
+          "verdict": "yes",
+          "reason": "The trial specifically enrolls obese subjects who are going to start a GLP-1 R-agonist (semaglutide or tirzepatide) as part of their weight management in routine clinical practice. The protocol involves the initiation of semaglutide or tirzepatide, so participants will receive semaglutide in at least some arms."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT06946628",
+          "title": "New Triple Therapy in Newly Diagnosed Type 2 Diabetes",
+          "verdict": "yes",
+          "reason": "The trial includes an experimental arm (Group A) where participants are given semaglutide as part of a triple combination therapy. The protocol specifies initiation with semaglutide 0.25 mg once weekly, along with empagliflozin and pioglitazone."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT07382388",
+          "title": "A Real-World Study on the Impact of Weight Loss on Treatment Efficacy in Overweight/Obese Patients With Plaque Psoriasis",
+          "verdict": "unclear",
+          "reason": "The record describes an observational study where the weight loss intervention may include pharmacotherapy, but it does not specify which drugs are used. There is no explicit mention of semaglutide, its brand names, or biosimilars being given as part of the protocol. Therefore, it is unclear whether semaglutide is given to participants."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT05503927",
+          "title": "A Study to Evaluate the Safety of Exposure to Wegovy During Pregnancy",
+          "verdict": "yes",
+          "reason": "This is an observational study specifically about people who have been exposed to Wegovy (semaglutide) during pregnancy. The study includes a cohort of participants who were exposed to Wegovy, and the purpose is to evaluate outcomes in this group. Therefore, the answer is yes, as the study is specifically about people receiving semaglutide."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT05622045",
+          "title": "Does Personality Predict Patient Adherence, Health Behaviors, and Weight Loss Outcomes During the Latino Crossover Semaglutide Study (LCSS)? (Story-LCSS Project)",
+          "verdict": "no",
+          "reason": "The study is observational and focuses on personality attributes and values of people participating in a weight loss program. While the title and summary mention the Latino Crossover Semaglutide Study, there is no indication that this specific study gives semaglutide to participants as part of its protocol. The only intervention listed is 'Voice data,' and there is no mention of semaglutide being administered or studied as an intervention in this record."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT07220629",
+          "title": "Study to Explore the Safety and Efficacy of NT-0796 as an Adjunct to Semaglutide in Participants With Obesity (RESOLVE-2)",
+          "verdict": "yes",
+          "reason": "The study is described as exploring NT-0796 as an adjunct to semaglutide, and the title and summary both specify that semaglutide is part of the protocol. Although the interventions list only NT-0796 and placebo, the context and phrasing ('as an adjunct to semaglutide') indicate that all participants are receiving semaglutide as background therapy, with randomization to NT-0796 or placebo on top of that."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT07563699",
+          "title": "Safety, Tolerability and Efficacy of Semaglutide Depot in Subjects With Type-2 Diabetes Mellitus",
+          "verdict": "yes",
+          "reason": "The trial is an interventional study where all arms receive 'SG Depot', which is described as a long-acting formulation of semaglutide. The intervention is explicitly semaglutide (under the name 'Semaglutide Depot'), given in various doses to participants."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT06380426",
+          "title": "A Multicenter Pharmacoepidemiological Cohort on Real Life Use of Semaglutide in Adolescents or Adults With Monogenic Obesity",
+          "verdict": "yes",
+          "reason": "The title and official title both state that this is a cohort on the real life use of semaglutide in adolescents or adults with monogenic obesity. This indicates that the study is specifically about people receiving semaglutide, even though it is observational. Therefore, the answer is yes."
+        },
+        {
+          "kind": "drug",
+          "term": "semaglutide",
+          "side": "excluded",
+          "nct_id": "NCT07834398",
+          "title": "Weekly GLP-1 Receptor Agonists in Obese Individuals Without Diabetes",
+          "verdict": "yes",
+          "reason": "The trial includes an arm where participants receive semaglutide 2.4 mg subcutaneous once weekly for 24 weeks. Semaglutide is explicitly listed as an intervention and as part of the protocol."
+        }
+      ]
+    }
+  ],
+  "summary": "## Retrieval (which trials a filter matches)\n\n| filter | app matches | left out by app | precision | recall vs broad search |\n|---|---|---|---|---|\n| drug: semaglutide | 650 | 146 | 100% (72%-100%) | 83% (82%-87%) |\n\n**drugs overall**: precision 100% (10/10, 95% CI 72-100%) of sampled matches; estimated recall 83% (~650 relevant trials found, ~130 missed, summed over terms).\n\nJudge answered 'unclear' 1 times (left out of the rates)."
+}

@@ -14,14 +14,15 @@ import time
 
 from pydantic import ValidationError
 
+from app.config import settings
 from app.ctgov.client import CTGovError, make_client
 from app.ctgov.query_builder import build_queries
+from app.pipeline import run_plan
 from app.planner.guardrail import GuardrailError
 from app.planner.planner import PlannerError
 from app.planner.preprocess import preprocess
-from app.processing.normalizer import normalize_all
-from app.aggregation.aggregator import Group, aggregate
 from app.schemas.common import Intent
+
 
 def stage(n: int, title: str):
     print(f"\n{'=' * 8} {n}. {title} {'=' * (60 - len(title))}")
@@ -94,33 +95,29 @@ async def main():
         for key, value in q.params.items():
             print(f"    {key} = {value}")
 
-    stage(4, "Fetch from ClinicalTrials.gov")
+    stage(4, "Fetch from ClinicalTrials.gov  ->  5. Normalize  ->  6. Aggregate")
     t = time.perf_counter()
     try:
         async with make_client() as client:
-            results = await client.fetch_all(queries, max_trials=req.max_trials)
+            out = await run_plan(plan, client, max_trials=req.max_trials,
+                                 max_count_requests=settings.ctgov_exact_count_max_requests)
     except CTGovError as exc:
         print(f"  API failed: {exc}")
         return
-    for r in results:
+    for r, report in zip(out.fetches, out.reports):
         left_out = (f", broad search {r.broad_total_count} (text-only mentions left out: "
                     f"{r.broad_total_count - r.total_count})") if r.broad_total_count is not None else ""
         print(f"  [{r.query.label or 'query'}] matched {r.total_count}, fetched {len(r.studies)}, "
               f"pages {r.pages_fetched} ({r.cache_hits} cached){left_out}")
         for w in r.warnings:
             print("    warning:", w)
+        print(f"    normalize: {json.dumps(report.as_dict())}")
+    if out.exact_count_requests:
+        print(f"  exact counts: {out.exact_count_requests} count requests")
     print(f"  ({time.perf_counter() - t:.1f}s)")
 
-    stage(5, "Normalize")
-    normalized = []
-    for r in results:
-        trials, report = normalize_all(r.studies)
-        normalized.append((r, trials))
-        print(f"  [{r.query.label or 'query'}] {json.dumps(report.as_dict())}")
-
-    stage(6, "Aggregate")
-    groups = [Group(label=r.query.label, filters=r.query.filters, trials=trials) for r, trials in normalized]
-    show_result(aggregate(plan, groups))
+    stage(6, "Result")
+    show_result(out.result)
 
     print(f"\nTotal time: {time.perf_counter() - t0:.1f}s")
 
