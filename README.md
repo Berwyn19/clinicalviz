@@ -2,6 +2,10 @@
 
 Ask a question about ClinicalTrials.gov, get a chart. Every number is counted by code from registry records (never by the LLM) and links back to the trials and fields it came from.
 
+## Demo
+
+[`demo.mp4`](demo.mp4) (2 min): asking questions in the bundled UI, each chart type, and clicking a bar to see the trials and citations behind it.
+
 ## Run
 
 ```
@@ -11,7 +15,9 @@ echo "OPENAI_API_KEY=sk-..." > .env       # .env wins over a key exported in the
 uvicorn app.main:app --reload
 ```
 
-Open http://127.0.0.1:8000 (UI) or http://127.0.0.1:8000/docs (OpenAPI). Tests: `pytest`.
+Open http://127.0.0.1:8000 (UI) or http://127.0.0.1:8000/docs (OpenAPI).
+
+Tests: `pytest`. Accuracy evals (live API and LLM, about 10-15 min each): `python -m evals.eval_planner`, `python -m evals.eval_counts`, `python -m evals.eval_retrieval`.
 
 Optional settings (env or `.env`): `PLANNER_MODEL` (gpt-4.1), `GUARDRAIL_MODEL` (gpt-4.1-mini), `CTGOV_CACHE_ENABLED` (true), `CTGOV_REQUESTS_PER_MINUTE` (50), `CTGOV_EXACT_COUNT_MAX_REQUESTS` (150). See `app/config.py`.
 
@@ -83,7 +89,7 @@ Full JSON outputs from the running system are in `examples/`:
 | `1_time_series.json` | "How has the number of trials for this drug changed over time?" + `drug_name: Pembrolizumab` | time series by start year |
 | `2_grouped_bar.json` | "Compare the phases of semaglutide and tirzepatide trials" | grouped bar, 650 vs 252 trials |
 | `3_bar_countries.json` | "Which 10 countries have the most recruiting psoriasis trials?" | bar: United States 46, China 30, France 16, ... |
-| `4_network.json` | "Show a network of drugs that are combined with rituximab" | drug-drug network, 30 nodes, 312 edges |
+| `4_network.json` | "Show a network of drugs that are combined with rituximab" | drug-drug network, 30 nodes, 81 links (each drug's 3 strongest) |
 | `5_unsupported.json` | "Is adalimumab better than etanercept for rheumatoid arthritis?" | `unsupported`: needs medical judgment |
 
 Example 2, shortened (one record, one source):
@@ -128,6 +134,19 @@ Example 2, shortened (one record, one source):
 question -> guardrail + planner (LLM) -> QueryPlan -> API queries -> fetch -> normalize -> aggregate -> visualization spec
 ```
 
+| path | role |
+|---|---|
+| `app/main.py` | FastAPI endpoints |
+| `app/schemas/` | request, plan, and shared enums |
+| `app/planner/` | guardrail, planner, prompts, plan validation |
+| `app/ctgov/` | query builder, API client (retry, rate limit, cache), exact counts |
+| `app/processing/` | normalization of raw API records (drug names, synonyms, dates) |
+| `app/aggregation/` | chart-agnostic counting with citations |
+| `app/visualization/` | visualization spec builder |
+| `app/pipeline.py` | plan -> fetch -> normalize -> aggregate |
+| `app/static/` | optional UI |
+| `evals/`, `docs/accuracy.md` | accuracy evaluation |
+
 - **The LLM only writes a plan, never numbers.** The plan is a strict schema (structured outputs, enums only), checked by rules; errors go back to the LLM for up to 3 attempts. Code does all counting, so every number is reproducible and cited.
 - **Strict matching over broad search.** A drug filter only matches InterventionName / OtherName / MeshTerm, not titles or descriptions. Tradeoff: higher precision (99%), lower recall (75%). The broad-search total is still reported in `sources` so the gap is visible.
 - **Exact counts when the download is capped.** For single-value fields (phase, status, year, sponsor class, study type), bars come from per-value API counts instead of the downloaded sample. Other charts say clearly that they are based on a sample of the newest trials.
@@ -152,6 +171,8 @@ Measured on held-out questions; details and method in [docs/accuracy.md](docs/ac
 - **Drug and condition bars undercount** (by about 26% and 50% vs filtering on that name): drugs inside combination names ("EPOCH-R"), salt forms split ("Vincristine" vs "Vincristine Sulfate"), and conditions matched as exact text ("Stroke" excludes "Ischemic Stroke"). Next: map names to MeSH / RxNorm concepts.
 - **Drug recall is 75%**: trials naming a drug only in arm descriptions or under a generic label are missed. Next: an optional LLM relevance check on broad-only matches.
 - **Sample-based charts** (multi-value fields over 10,000 matches) are labelled as samples but undercount. Next: background full downloads or exact per-value counts.
+- **Salt forms are separate drugs** ("Fludarabine" vs "Fludarabine Phosphate"), in bars and networks alike. Fixing it needs concept mapping, not a suffix word list.
+- **Network links are ranked by raw co-occurrence** (each entity's 3 strongest links), so very common drugs still dominate. Next: rank by lift (observed vs expected co-occurrence) with a minimum support.
 - **Sponsor names are not merged** ("Novartis" vs "Novartis Pharmaceuticals").
 - **No adverse events, eligibility, or results data**: these questions are refused.
 - **Next:** async job queue for large downloads, and more eval questions.
@@ -165,6 +186,6 @@ Measured on held-out questions; details and method in [docs/accuracy.md](docs/ac
 **Generated by AI:** the implementation, from those designs. I reviewed it, directed fixes, and kept it to the designs above.
 
 **Validation:**
-- 108 tests (`pytest`) with a fake LLM and a fake ClinicalTrials.gov API, covering query building, normalization, aggregation, exact counts, plan rules, and the endpoints.
+- 110 tests (`pytest`) with a fake LLM and a fake ClinicalTrials.gov API, covering query building, normalization, aggregation, exact counts, plan rules, and the endpoints.
 - Every chart type was run end to end in a real browser.
 - Held-out accuracy evals (`evals/`, [docs/accuracy.md](docs/accuracy.md)): planner vs. expected plans (98%), every chart bar recounted with an independent API query (coded fields 100% exact), and filter precision/recall judged by an LLM on random samples. The evals found a real bug (Parkinson's recall 43% from the apostrophe), which was fixed.

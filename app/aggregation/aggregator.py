@@ -36,6 +36,7 @@ DEFAULT_TOP_N = 15            # for dimensions without a fixed order (sponsors, 
 UNKNOWN_SHARE = 0.05          # show an "Unknown" bar only above this share of trials
 NETWORK_MAX_NODES = 30
 NETWORK_MIN_EDGE_WEIGHT = 2
+NETWORK_LINKS_PER_NODE = 3    # keep a link only if it is among the strongest of one of its two nodes
 SCATTER_MAX_POINTS = 5000
 TABLE_DEFAULT_LIMIT = 50
 
@@ -65,11 +66,23 @@ class _Bucket:
     nct_ids: list[str] = field(default_factory=list)
     citations: list[Citation] = field(default_factory=list)
     exact: int | None = None    # exact API count; nct_ids is then only the downloaded sample
+    spellings: Counter = field(default_factory=Counter)   # display names seen for this key
 
-    def add(self, nct_id: str, field_path: str, excerpt: str) -> None:
+    def add(self, nct_id: str, field_path: str, excerpt: str, label: str | None = None) -> None:
         self.nct_ids.append(nct_id)
+        if label:
+            self.spellings[label] += 1
         if len(self.citations) < CITATION_LIMIT:
             self.citations.append(Citation(nct_id=nct_id, field=field_path, excerpt=excerpt))
+
+    @property
+    def display(self) -> str:
+        """The most common spelling across trials (not whichever trial came first);
+        all-lowercase names get a capital first letter ('rituximab' -> 'Rituximab')."""
+        if not self.spellings:
+            return self.label
+        name = max(self.spellings.items(), key=lambda kv: (kv[1], kv[0] != kv[0].lower(), kv[0]))[0]
+        return name[:1].upper() + name[1:] if name == name.lower() else name
 
     @property
     def count(self) -> int:
@@ -123,7 +136,7 @@ def group_count(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
             if not evidence:
                 missing[g.label].append(t.nct_id)
             for ev in evidence:
-                buckets.setdefault(ev.key, _Bucket(ev.label)).add(t.nct_id, ev.field, ev.excerpt)
+                buckets.setdefault(ev.key, _Bucket(ev.label)).add(t.nct_id, ev.field, ev.excerpt, ev.label)
         if g.exact:
             buckets = _apply_exact(buckets, g.exact, spec)
         per_series[g.label] = buckets
@@ -138,7 +151,7 @@ def group_count(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
     hidden = max(0, len(keys) - limit) if limit else 0
     keys = keys[:limit] if limit else keys
 
-    labels = {k: b.label for buckets in per_series.values() for k, b in buckets.items()}
+    labels = {k: b.display for buckets in per_series.values() for k, b in buckets.items()}
     rows = [_datum(labels[k], per_series[g.label].get(k), g.label) for k in keys for g in groups]
 
     notes = _overlap_note(groups)
@@ -364,7 +377,7 @@ def network(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
         sides = [(a_side, src_dim)] if same else [(a_side, src_dim), (b_side, tgt_dim)]
         for side, dim in sides:
             for node_id, ev in side.items():
-                nodes.setdefault(node_id, _Bucket(ev.label)).add(t.nct_id, ev.field, ev.excerpt)
+                nodes.setdefault(node_id, _Bucket(ev.label)).add(t.nct_id, ev.field, ev.excerpt, ev.label)
                 node_type[node_id] = dim.value
         pairs = combinations(sorted(a_side), 2) if same else product(a_side, b_side)
         for a, b in pairs:
@@ -386,6 +399,7 @@ def network(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
     if not any(b.count >= min_weight for _, b in kept_edges):
         min_weight = 1  # small result: show every link rather than nothing
     kept_edges = [(k, b) for k, b in kept_edges if b.count >= min_weight]
+    kept_edges = _strongest_links(kept_edges, NETWORK_LINKS_PER_NODE)
     connected = {n for (a, b), _ in kept_edges for n in (a, b)}
 
     aliases = {k: v for g in groups for k, v in g.drug_aliases.items()}
@@ -403,7 +417,7 @@ def network(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
         return any(f" {q} " in f" {key} " for q in query_keys.get(kind, ()))
 
     out_nodes = [
-        Node(id=n, label=nodes[n].label, type=node_type[n], weight=nodes[n].count, is_query_match=is_match(n),
+        Node(id=n, label=nodes[n].display, type=node_type[n], weight=nodes[n].count, is_query_match=is_match(n),
              nct_ids=nodes[n].nct_ids, citations=nodes[n].citations)
         for n in ranked if n in kept and n in connected
     ]
@@ -412,8 +426,9 @@ def network(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
         for (a, b), bk in sorted(kept_edges, key=lambda kb: (-kb[1].count, kb[0]))
     ]
 
-    notes = [f"Showing {len(out_nodes)} of {len(nodes)} entities and {len(out_edges)} of {len(edges)} links "
-             f"(links shared by at least {min_weight} trial{'s' if min_weight > 1 else ''})."]
+    notes = [f"Showing {len(out_nodes)} of {len(nodes)} entities and {len(out_edges)} of {len(edges)} links: "
+             f"each entity's {NETWORK_LINKS_PER_NODE} strongest links, shared by at least {min_weight} "
+             f"trial{'s' if min_weight > 1 else ''}."]
     if len(groups) > 1:
         notes.append("Compared groups were merged into one network.")
     if any(n.is_query_match for n in out_nodes):
@@ -424,6 +439,23 @@ def network(plan: QueryPlan, groups: list[Group]) -> AggregateResult:
         stats={"trials": len(trials), "entities_total": len(nodes), "links_total": len(edges),
                "min_edge_weight": min_weight},
     )
+
+
+def _strongest_links(edges: list, per_node: int) -> list:
+    """Keep a link if it is among the `per_node` heaviest links of either endpoint.
+
+    Common entities co-occur with almost everything, so a plain weight cutoff gives a
+    hairball; this keeps each entity's main partners and drops incidental links.
+    """
+    ranked = sorted(edges, key=lambda kb: (-kb[1].count, kb[0]))
+    taken: Counter = Counter()
+    keep = set()
+    for (a, b), _ in ranked:
+        if taken[a] < per_node or taken[b] < per_node:
+            keep.add((a, b))
+        taken[a] += 1
+        taken[b] += 1
+    return [(k, bk) for k, bk in edges if k in keep]
 
 
 # ------------------------------------------------------------------ table

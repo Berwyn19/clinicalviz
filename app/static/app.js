@@ -233,8 +233,9 @@ function render(data) {
     $("#toggle-table").hidden = true;
     return;
   }
-  chart = echarts.init($("#chart"), null, { renderer: "svg" });
+  // Build the option first: it sets the container height, and the chart must be created at that size.
   const option = r.kind === "network" ? networkOption(r) : rowsOption(r, data.plan);
+  chart = echarts.init($("#chart"), null, { renderer: "svg" });
   chart.setOption(option);
   chart.on("click", (p) => showEvidence(r, p));
   $("#chart").setAttribute("aria-label", `${what} for: ${data.question}`);

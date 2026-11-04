@@ -182,3 +182,30 @@ def test_trial_list_newest_first_with_limit():
     r = run(plan(intent=Intent.TRIAL_LIST, chart=ChartType.TABLE, limit=2), g(ts))
     assert [row.nct_id for row in r.table] == ["New", "Old"]
     assert r.table[0].url == "https://clinicaltrials.gov/study/New"
+
+def test_network_keeps_only_each_nodes_strongest_links():
+    from app.aggregation.aggregator import _Bucket, _strongest_links
+
+    def bucket(n):
+        b = _Bucket("")
+        b.nct_ids = [f"NCT{i}" for i in range(n)]
+        return b
+    # hub H links to A-D; A-B is weak but it is among A's (and B's) top links
+    edges = [(("H", "A"), bucket(9)), (("H", "B"), bucket(8)), (("H", "C"), bucket(7)),
+             (("H", "D"), bucket(6)), (("A", "B"), bucket(2))]
+    kept = {k for k, _ in _strongest_links(edges, per_node=1)}
+    assert kept == {("H", "A"), ("H", "B"), ("H", "C"), ("H", "D")}   # A-B is nobody's strongest
+    kept2 = {k for k, _ in _strongest_links(edges, per_node=2)}
+    assert ("A", "B") in kept2
+
+
+def test_bucket_label_is_most_common_spelling_capitalized():
+    from app.aggregation.aggregator import _Bucket
+    b = _Bucket("rituximab")
+    for label in ["rituximab", "rituximab", "Rituximab"]:
+        b.add("NCT1", "f", "e", label)
+    assert b.display == "Rituximab"
+    b2 = _Bucket("x")
+    for label in ["Fludarabine Phosphate", "fludarabine phosphate", "Fludarabine Phosphate"]:
+        b2.add("NCT1", "f", "e", label)
+    assert b2.display == "Fludarabine Phosphate"
