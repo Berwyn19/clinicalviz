@@ -19,7 +19,7 @@ class Intervention(BaseModel):
 
 class Site(BaseModel):
     country: str
-    status: str | None            # site-level recruitment status (may differ from the trial's)
+    status: str | None = None     # site-level recruitment status (may differ from the trial's)
 
 
 class Trial(BaseModel):
